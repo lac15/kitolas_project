@@ -78,7 +78,7 @@
                   <Circle id="w04" fill="WHITE" layoutX="27.0" layoutY="220.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle id="w05" fill="WHITE" layoutX="27.0" layoutY="280.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle id="w06" fill="WHITE" layoutX="27.0" layoutY="344.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle id="b01" layoutX="459.0" layoutY="34.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="344.0" AnchorPane.leftAnchor="439.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="14.0" />
+                  <Circle id="b01" layoutX="459.0" layoutY="34.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle id="b02" layoutX="459.0" layoutY="96.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle id="b03" layoutX="459.0" layoutY="157.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle id="b04" layoutX="459.0" layoutY="220.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
