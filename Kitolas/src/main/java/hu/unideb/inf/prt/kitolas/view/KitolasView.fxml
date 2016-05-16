@@ -35,8 +35,8 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <AnchorPane />
-                        <AnchorPane GridPane.columnIndex="1" />
+                        <AnchorPane onMouseClicked="#incLevettBClick" />
+                        <AnchorPane onMouseDragged="#incLevettWClick" GridPane.columnIndex="1" />
                         <AnchorPane GridPane.columnIndex="2" />
                         <AnchorPane GridPane.columnIndex="3" />
                         <AnchorPane GridPane.columnIndex="4" />
