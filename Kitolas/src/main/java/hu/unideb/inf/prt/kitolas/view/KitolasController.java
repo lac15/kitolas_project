@@ -89,7 +89,7 @@ public class KitolasController {
 			incKor();
 		}
 		
-		popupWinner();
+		popupWinnerCheck();
 	}
 	
 	@FXML
@@ -104,56 +104,39 @@ public class KitolasController {
 			incKor();
 		}
 		
-		popupWinner();
+		popupWinnerCheck();
 	}
 	
-	private void popupWinner(){
+	private void popupWinner(String gyoztes){
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Győztes");
+		alert.setHeaderText(gyoztes + " nyert!");
+		alert.setContentText("Új játék?");
+	
+		ButtonType buttonTypeOne = new ButtonType("One");
+		ButtonType buttonTypeTwo = new ButtonType("Two");
+		ButtonType buttonTypeThree = new ButtonType("Three");
+		ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
+	
+		alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeCancel);
+	
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == buttonTypeOne){
+		    // ... user chose "One"
+		} else if (result.get() == buttonTypeTwo) {
+		    // ... user chose "Two"
+		} else if (result.get() == buttonTypeThree) {
+		    // ... user chose "Three"
+		} else {
+		    // ... user chose CANCEL or closed the dialog
+		}
+	}
+	
+	private void popupWinnerCheck(){
 		if(main.getKitolData().getLevettB().equals("6")){
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Győztes");
-			alert.setHeaderText("Fekete nyert!");
-			alert.setContentText("Új játék?");
-		
-			ButtonType buttonTypeOne = new ButtonType("One");
-			ButtonType buttonTypeTwo = new ButtonType("Two");
-			ButtonType buttonTypeThree = new ButtonType("Three");
-			ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
-		
-			alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeCancel);
-		
-			Optional<ButtonType> result = alert.showAndWait();
-			if (result.get() == buttonTypeOne){
-			    // ... user chose "One"
-			} else if (result.get() == buttonTypeTwo) {
-			    // ... user chose "Two"
-			} else if (result.get() == buttonTypeThree) {
-			    // ... user chose "Three"
-			} else {
-			    // ... user chose CANCEL or closed the dialog
-			}
+			popupWinner("Feher");
 		} else if(main.getKitolData().getLevettW().equals("6")){
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Győztes");
-			alert.setHeaderText("Feher nyert!");
-			alert.setContentText("Új játék?");
-		
-			ButtonType buttonTypeOne = new ButtonType("One");
-			ButtonType buttonTypeTwo = new ButtonType("Two");
-			ButtonType buttonTypeThree = new ButtonType("Three");
-			ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
-		
-			alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeCancel);
-		
-			Optional<ButtonType> result = alert.showAndWait();
-			if (result.get() == buttonTypeOne){
-			    // ... user chose "One"
-			} else if (result.get() == buttonTypeTwo) {
-			    // ... user chose "Two"
-			} else if (result.get() == buttonTypeThree) {
-			    // ... user chose "Three"
-			} else {
-			    // ... user chose CANCEL or closed the dialog
-			}
+			popupWinner("Fekete");
 		}
 	}
 	
