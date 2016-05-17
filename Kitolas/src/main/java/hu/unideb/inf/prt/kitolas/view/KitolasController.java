@@ -3,6 +3,7 @@ package hu.unideb.inf.prt.kitolas.view;
 import hu.unideb.inf.prt.kitolas.model.KitolasData;
 
 import java.util.Optional;
+import java.util.Random;
 
 import hu.unideb.inf.prt.kitolas.Main;
 import javafx.fxml.FXML;
@@ -67,9 +68,63 @@ public class KitolasController {
 		}
 	}
 	
-	@FXML
-	private void startKitolasGame(){
+	private void startKitolasGame(KitolasData kitolasData){
+		Random rand = new Random();
+		int row;
+		int col;
+		int feher = 0;
+		int fekete = 0;
 		
+		for(int i = 0; i < 6; i++){
+			for(int j = 0; j < 6; j++){
+				kitolasData.setElem(i, j, 0);
+			}
+		}
+		
+		while(feher != 6){
+			row = rand.nextInt(6);
+			col = rand.nextInt(6);
+			
+			if(kitolasData.getElem(row, col) == 0){
+				kitolasData.setElem(row, col, 1);
+				feher++;
+			}
+		}
+			while(fekete != 6){
+				row = rand.nextInt(6);
+				col = rand.nextInt(6);
+				
+				if(kitolasData.getElem(row, col) == 0){
+					kitolasData.setElem(row, col, 2);
+					fekete++;
+				}
+			}
+		
+		for(int i = 0; i < 6; i++){
+			for(int j = 0; j < 6; j++){
+				System.out.print(kitolasData.getElem(i, j));
+			}
+			System.out.println();
+		}
+	}
+	
+	@FXML
+	private void startGame(){
+		Alert alert = new Alert(AlertType.WARNING);
+		alert.setTitle("Új játék");
+		alert.setHeaderText("Biztosan új játékot akarsz kezdeni?");
+	
+		ButtonType buttonTypeIgen = new ButtonType("Igen");
+		ButtonType buttonTypeNem = new ButtonType("Nem");
+	
+		alert.getButtonTypes().setAll(buttonTypeIgen, buttonTypeNem);
+	
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == buttonTypeIgen){
+			startKitolasGame(main.getKitolData());
+		} else {
+		    // ... user chose CANCEL or closed the dialog
+		}
 	}
 	
 	@FXML
@@ -78,7 +133,7 @@ public class KitolasController {
 	}
 	
 	@FXML
-	private void incLevettBClick(){
+	private void incLevettBTopLeftClick(){
 		int sz = Integer.parseInt(main.getKitolData().getLevettB()) + 1;
 		main.getKitolData().setLevettB(sz + "");
 		
@@ -93,7 +148,7 @@ public class KitolasController {
 	}
 	
 	@FXML
-	private void incLevettWClick(){
+	private void incLevettWLeftRightClick(){
 		int sz = Integer.parseInt(main.getKitolData().getLevettW()) + 1;
 		main.getKitolData().setLevettW(sz + "");
 		

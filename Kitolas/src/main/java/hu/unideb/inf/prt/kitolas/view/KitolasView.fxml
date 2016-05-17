@@ -11,13 +11,13 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.prt.kitolas.view.KitolasController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.prt.kitolas.view.KitolasController">
    <children>
-      <SplitPane dividerPositions="0.7676767676767676" layoutX="-1.0" layoutY="-5.0" prefHeight="375.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.7676767676767676" layoutX="-1.0" layoutY="-5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="257.0" prefWidth="252.0">
+            <AnchorPane>
                <children>
-                  <GridPane gridLinesVisible="true" layoutX="58.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="58.0" AnchorPane.rightAnchor="57.0" AnchorPane.topAnchor="0.0">
+                  <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="95.0" layoutY="39.0" prefHeight="420.0" prefWidth="420.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -35,8 +35,8 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <AnchorPane onMouseClicked="#incLevettBClick" />
-                        <AnchorPane onMouseDragged="#incLevettWClick" GridPane.columnIndex="1" />
+                        <AnchorPane />
+                        <AnchorPane GridPane.columnIndex="1" />
                         <AnchorPane GridPane.columnIndex="2" />
                         <AnchorPane GridPane.columnIndex="3" />
                         <AnchorPane GridPane.columnIndex="4" />
@@ -73,18 +73,138 @@
                         <AnchorPane GridPane.columnIndex="5" GridPane.rowIndex="5" />
                      </children>
                   </GridPane>
-                  <Circle id="w01" fill="WHITE" layoutX="27.0" layoutY="34.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle id="w02" fill="WHITE" layoutX="27.0" layoutY="96.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle id="w03" fill="WHITE" layoutX="27.0" layoutY="157.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle id="w04" fill="WHITE" layoutX="27.0" layoutY="220.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle id="w05" fill="WHITE" layoutX="27.0" layoutY="280.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle id="w06" fill="WHITE" layoutX="27.0" layoutY="344.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle id="b01" layoutX="459.0" layoutY="34.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle id="b02" layoutX="459.0" layoutY="96.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle id="b03" layoutX="459.0" layoutY="157.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle id="b04" layoutX="459.0" layoutY="220.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle id="b05" layoutX="459.0" layoutY="280.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle id="b06" layoutX="459.0" layoutY="344.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle id="w01" fill="WHITE" layoutX="34.0" layoutY="91.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle id="w02" fill="WHITE" layoutX="34.0" layoutY="161.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle id="w03" fill="WHITE" layoutX="34.0" layoutY="228.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle id="w04" fill="WHITE" layoutX="34.0" layoutY="297.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle id="w05" fill="WHITE" layoutX="34.0" layoutY="361.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle id="w06" fill="WHITE" layoutX="34.0" layoutY="430.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle id="b01" layoutX="580.0" layoutY="93.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle id="b02" layoutX="580.0" layoutY="163.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle id="b03" layoutX="580.0" layoutY="230.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle id="b04" layoutX="580.0" layoutY="299.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle id="b05" layoutX="580.0" layoutY="363.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle id="b06" layoutX="580.0" layoutY="432.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="95.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopLeftClick" prefHeight="25.0" prefWidth="70.0" text="/\">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="165.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopLeftClick" prefHeight="25.0" prefWidth="70.0" text="/\">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopLeftClick" prefHeight="25.0" prefWidth="70.0" text="/\">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="305.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopLeftClick" prefHeight="25.0" prefWidth="70.0" text="/\">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="375.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopLeftClick" prefHeight="25.0" prefWidth="70.0" text="/\">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="445.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopLeftClick" prefHeight="25.0" prefWidth="70.0" text="/\">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&lt;">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="109.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&lt;">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&lt;">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&lt;">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&lt;">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="389.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&lt;">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&gt;">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="109.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&gt;">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&gt;">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&gt;">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&gt;">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="389.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&gt;">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="95.0" layoutY="460.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopLeftClick" prefHeight="25.0" prefWidth="70.0" text="\\/">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="165.0" layoutY="460.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopLeftClick" prefHeight="25.0" prefWidth="70.0" text="\\/">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="460.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopLeftClick" prefHeight="25.0" prefWidth="70.0" text="\\/">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="305.0" layoutY="460.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopLeftClick" prefHeight="25.0" prefWidth="70.0" text="\\/">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="375.0" layoutY="460.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopLeftClick" prefHeight="25.0" prefWidth="70.0" text="\\/">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="445.0" layoutY="460.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopLeftClick" prefHeight="25.0" prefWidth="70.0" text="\\/">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
@@ -96,23 +216,23 @@
                      </font>
                   </Label>
                   <Separator layoutX="1.0" layoutY="45.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0" />
-                  <Label layoutX="14.0" layoutY="53.0" text="Táblán:" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="56.0" />
-                  <Label layoutX="14.0" layoutY="79.0" text="Levett:" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="76.0" />
-                  <Label fx:id="tablanWLabel" layoutX="73.0" layoutY="53.0" text="Label" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="56.0" />
-                  <Label fx:id="levettWLabel" layoutX="73.0" layoutY="79.0" text="Label" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="76.0" />
+                  <Label layoutX="14.0" layoutY="53.0" text="Táblán:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="56.0" />
+                  <Label layoutX="14.0" layoutY="79.0" text="Levett:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="76.0" />
+                  <Label fx:id="tablanWLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="73.0" layoutY="53.0" text="Label" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="56.0" />
+                  <Label fx:id="levettWLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="73.0" layoutY="79.0" text="Label" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="76.0" />
                   <Separator layoutY="99.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0" />
-                  <Separator layoutX="3.0" layoutY="211.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="160.0" />
-                  <Label alignment="CENTER" layoutX="1.0" layoutY="163.0" prefHeight="30.0" prefWidth="145.0" text="Kör" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="160.0">
+                  <Separator layoutX="1.0" layoutY="184.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="185.0" />
+                  <Label alignment="CENTER" layoutX="1.0" layoutY="185.0" prefHeight="30.0" prefWidth="145.0" text="Kör" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="185.0">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="korLabel" alignment="CENTER" layoutY="190.0" prefHeight="30.0" prefWidth="145.0" text="Label" AnchorPane.bottomAnchor="153.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Label fx:id="korLabel" alignment="CENTER" layoutX="1.0" layoutY="224.0" prefHeight="30.0" prefWidth="145.0" text="Label" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font name="System Italic" size="20.0" />
                      </font>
                   </Label>
-                  <Separator layoutY="144.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Separator layoutY="252.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.bottomAnchor="193.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                   <Separator layoutY="157.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                   <Label alignment="CENTER" layoutY="280.0" prefHeight="30.0" prefWidth="145.0" text="Fekete" AnchorPane.bottomAnchor="63.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>
@@ -120,12 +240,12 @@
                      </font>
                   </Label>
                   <Separator layoutY="187.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                  <Label layoutX="14.0" layoutY="202.0" text="Táblán:" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="85.0" />
-                  <Label layoutX="14.0" layoutY="228.0" text="Levett:" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="85.0" />
-                  <Label fx:id="tablanBLabel" layoutX="73.0" layoutY="202.0" text="Label" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="30.0" />
-                  <Label fx:id="levettBLabel" layoutX="73.0" layoutY="228.0" text="Label" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="30.0" />
+                  <Label layoutX="14.0" layoutY="202.0" text="Táblán:" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="30.0" />
+                  <Label layoutX="14.0" layoutY="228.0" text="Levett:" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="30.0" />
+                  <Label fx:id="tablanBLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="73.0" layoutY="202.0" text="Label" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="30.0" />
+                  <Label fx:id="levettBLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="73.0" layoutY="228.0" text="Label" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="30.0" />
                   <Separator layoutX="3.0" layoutY="358.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                  <Button alignment="CENTER" layoutX="47.0" layoutY="113.0" mnemonicParsing="false" onAction="#startKitolasGame" text="Start" AnchorPane.leftAnchor="44.0">
+                  <Button alignment="CENTER" layoutX="42.0" layoutY="125.0" mnemonicParsing="false" onAction="#startGame" prefHeight="37.0" prefWidth="77.0" text="Start" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="41.0">
                      <font>
                         <Font size="16.0" />
                      </font>

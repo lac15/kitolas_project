@@ -11,6 +11,7 @@ public class KitolasData {
 	private StringProperty levettW;
 	private StringProperty korSzam;
 	
+	private int [][] tabla = new int [6][6];
 		
 	public KitolasData() {
 		this(null,null,null,null,null);
@@ -85,6 +86,23 @@ public class KitolasData {
 	}
 	public void setKorSzam(String korSzam) {
 		this.korSzam.set(korSzam);
+	}
+
+	public KitolasData(int[][] tabla) {
+		super();
+		this.tabla = tabla;
+	}
+	public int[][] getTabla() {
+		return tabla;
+	}
+	public void setTabla(int[][] tabla) {
+		this.tabla = tabla;
+	}
+	public int getElem(int x,int y) {
+		return this.tabla[x][y];
+	}
+	public void setElem(int x,int y,int value) {
+		this.tabla[x][y] = value;
 	}
 	
 }

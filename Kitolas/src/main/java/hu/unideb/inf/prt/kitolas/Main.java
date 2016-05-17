@@ -41,7 +41,7 @@ public class Main extends Application {
 	
 	private void createRootPane(){
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource("view/RootPaneView.fxml"));
+		loader.setLocation(Main.class.getResource("/hu/unideb/inf/prt/kitolas/view/RootPaneView.fxml"));
 		try {
 			rootPane = (BorderPane)loader.load();
 			
@@ -57,7 +57,7 @@ public class Main extends Application {
 	
 	private void createKitolasView(){
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource("view/KitolasView.fxml"));
+		loader.setLocation(Main.class.getResource("/hu/unideb/inf/prt/kitolas/view/KitolasView.fxml"));
 		try {
 			AnchorPane kitolasView = (AnchorPane)loader.load();
 			rootPane.setCenter(kitolasView);
