@@ -85,32 +85,32 @@
                   <Circle id="b04" layoutX="580.0" layoutY="299.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle id="b05" layoutX="580.0" layoutY="363.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle id="b06" layoutX="580.0" layoutY="432.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="95.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol" prefHeight="25.0" prefWidth="70.0" text="/\">
+                  <Button id="0" fx:id="top1Button" alignment="CENTER" contentDisplay="CENTER" layoutX="95.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol" prefHeight="25.0" prefWidth="70.0" text="/\">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="165.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="/\">
+                  <Button id="1" alignment="CENTER" contentDisplay="CENTER" layoutX="165.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="/\">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="/\">
+                  <Button id="2" alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="/\">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="305.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="/\">
+                  <Button id="3" alignment="CENTER" contentDisplay="CENTER" layoutX="305.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="/\">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="375.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="/\">
+                  <Button id="4" alignment="CENTER" contentDisplay="CENTER" layoutX="375.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="/\">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="445.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="/\">
+                  <Button id="5" alignment="CENTER" contentDisplay="CENTER" layoutX="445.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="/\">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>

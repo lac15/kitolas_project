@@ -9,6 +9,7 @@ import hu.unideb.inf.prt.kitolas.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
@@ -23,6 +24,9 @@ public class KitolasController {
 	private int lepes = 0;
 	private int korSzam = 1;
 	private int aktLevett = 0;
+	
+	@FXML
+	private Button top1Button;
 	
 	@FXML
 	private Label tablanBLabel;
@@ -128,14 +132,14 @@ public class KitolasController {
 		}
 	}
 	
-	private void shiftUp(KitolasData kitolasData){
+	private void shiftUp(KitolasData kitolasData, int oIndex){
 		for(int i = 0; i < 6; i++){
-			int aktElem = kitolasData.getElem(i, 0);
+			int aktElem = kitolasData.getElem(i, oIndex);
 			if(i == 0){
 				aktLevett = aktElem;
 			} else {
-				kitolasData.setElem(i-1, 0, aktElem);
-				kitolasData.setElem(i, 0, 0);
+				kitolasData.setElem(i-1, oIndex, aktElem);
+				kitolasData.setElem(i, oIndex, 0);
 			}
 		}
 		
@@ -151,7 +155,7 @@ public class KitolasController {
 	
 	@FXML
 	private void shiftUpCol(){
-		shiftUp(main.getKitolData());
+		shiftUp(main.getKitolData(), Integer.parseInt(top1Button.getId()));
 	}
 	
 	@FXML
