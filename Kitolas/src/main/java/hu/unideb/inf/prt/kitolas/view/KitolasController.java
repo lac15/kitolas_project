@@ -22,6 +22,7 @@ public class KitolasController {
 	
 	private int lepes = 0;
 	private int korSzam = 1;
+	private int aktLevett = 0;
 	
 	@FXML
 	private Label tablanBLabel;
@@ -127,13 +128,39 @@ public class KitolasController {
 		}
 	}
 	
+	private void shiftUp(KitolasData kitolasData){
+		for(int i = 0; i < 6; i++){
+			int aktElem = kitolasData.getElem(i, 0);
+			if(i == 0){
+				aktLevett = aktElem;
+			} else {
+				kitolasData.setElem(i-1, 0, aktElem);
+				kitolasData.setElem(i, 0, 0);
+			}
+		}
+		
+		for(int i = 0; i < 6; i++){
+			for(int j = 0; j < 6; j++){
+				System.out.print(kitolasData.getElem(i, j));
+			}
+			System.out.println();
+		}
+		
+		System.out.println(aktLevett);
+	}
+	
+	@FXML
+	private void shiftUpCol(){
+		shiftUp(main.getKitolData());
+	}
+	
 	@FXML
 	private void incKor(){
 		korLabel.setText(++korSzam + "/36");
 	}
 	
 	@FXML
-	private void incLevettBTopLeftClick(){
+	private void incLevettBTopBotClick(){
 		int sz = Integer.parseInt(main.getKitolData().getLevettB()) + 1;
 		main.getKitolData().setLevettB(sz + "");
 		
