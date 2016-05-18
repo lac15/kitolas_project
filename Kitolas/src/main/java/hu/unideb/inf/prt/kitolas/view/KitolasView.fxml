@@ -35,8 +35,8 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <AnchorPane />
-                        <AnchorPane GridPane.columnIndex="1" />
+                        <AnchorPane onMouseClicked="#incLevettBTopBotClick" />
+                        <AnchorPane onMouseClicked="#incLevettWLeftRightClick" GridPane.columnIndex="1" />
                         <AnchorPane GridPane.columnIndex="2" />
                         <AnchorPane GridPane.columnIndex="3" />
                         <AnchorPane GridPane.columnIndex="4" />
@@ -85,122 +85,122 @@
                   <Circle id="b04" layoutX="580.0" layoutY="299.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle id="b05" layoutX="580.0" layoutY="363.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle id="b06" layoutX="580.0" layoutY="432.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Button id="0" fx:id="top1Button" alignment="CENTER" contentDisplay="CENTER" layoutX="95.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol" prefHeight="25.0" prefWidth="70.0" text="/\">
+                  <Button id="0" fx:id="left0Button" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#shiftLeftRow0" prefHeight="70.0" prefWidth="25.0" text="&lt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button id="1" alignment="CENTER" contentDisplay="CENTER" layoutX="165.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="/\">
+                  <Button id="1" fx:id="left1Button" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="109.0" mnemonicParsing="false" onMouseClicked="#shiftLeftRow1" prefHeight="70.0" prefWidth="25.0" text="&lt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button id="2" alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="/\">
+                  <Button id="2" fx:id="left2Button" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#shiftLeftRow2" prefHeight="70.0" prefWidth="25.0" text="&lt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button id="3" alignment="CENTER" contentDisplay="CENTER" layoutX="305.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="/\">
+                  <Button id="3" fx:id="left3Button" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#shiftLeftRow3" prefHeight="70.0" prefWidth="25.0" text="&lt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button id="4" alignment="CENTER" contentDisplay="CENTER" layoutX="375.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="/\">
+                  <Button id="4" fx:id="left4Button" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#shiftLeftRow4" prefHeight="70.0" prefWidth="25.0" text="&lt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button id="5" alignment="CENTER" contentDisplay="CENTER" layoutX="445.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="/\">
+                  <Button id="5" fx:id="left5Button" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="389.0" mnemonicParsing="false" onMouseClicked="#shiftLeftRow5" prefHeight="70.0" prefWidth="25.0" text="&lt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&lt;">
+                  <Button id="0" fx:id="right0Button" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#shiftRightRow0" prefHeight="70.0" prefWidth="25.0" text="&gt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="109.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&lt;">
+                  <Button id="1" fx:id="right1Button" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="109.0" mnemonicParsing="false" onMouseClicked="#shiftRightRow1" prefHeight="70.0" prefWidth="25.0" text="&gt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&lt;">
+                  <Button id="2" fx:id="right2Button" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#shiftRightRow2" prefHeight="70.0" prefWidth="25.0" text="&gt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&lt;">
+                  <Button id="3" fx:id="right3Button" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#shiftRightRow3" prefHeight="70.0" prefWidth="25.0" text="&gt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&lt;">
+                  <Button id="4" fx:id="right4Button" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#shiftRightRow4" prefHeight="70.0" prefWidth="25.0" text="&gt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="389.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&lt;">
+                  <Button id="5" fx:id="right5Button" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="389.0" mnemonicParsing="false" onMouseClicked="#shiftRightRow5" prefHeight="70.0" prefWidth="25.0" text="&gt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&gt;">
+                  <Button id="0" fx:id="bot0Button" alignment="CENTER" contentDisplay="CENTER" layoutX="117.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#shiftDownCol0" prefHeight="70.0" prefWidth="25.0" rotate="90.0" text="&gt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="109.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&gt;">
+                  <Button id="2" fx:id="bot2Button" alignment="CENTER" contentDisplay="CENTER" layoutX="257.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#shiftDownCol2" prefHeight="70.0" prefWidth="25.0" rotate="90.0" text="&gt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&gt;">
+                  <Button id="1" fx:id="bot1Button" alignment="CENTER" contentDisplay="CENTER" layoutX="187.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#shiftDownCol1" prefHeight="70.0" prefWidth="25.0" rotate="90.0" text="&gt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&gt;">
+                  <Button id="3" fx:id="bot3Button" alignment="CENTER" contentDisplay="CENTER" layoutX="328.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#shiftDownCol3" prefHeight="70.0" prefWidth="25.0" rotate="90.0" text="&gt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&gt;">
+                  <Button id="4" fx:id="bot4Button" alignment="CENTER" contentDisplay="CENTER" layoutX="398.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#shiftDownCol4" prefHeight="70.0" prefWidth="25.0" rotate="90.0" text="&gt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="389.0" mnemonicParsing="false" onMouseClicked="#incLevettWLeftRightClick" prefHeight="70.0" prefWidth="25.0" text="&gt;">
+                  <Button id="5" fx:id="bot5Button" alignment="CENTER" contentDisplay="CENTER" layoutX="468.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#shiftDownCol5" prefHeight="70.0" prefWidth="25.0" rotate="90.0" text="&gt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="95.0" layoutY="460.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="\\/">
+                  <Button id="0" fx:id="top0Button" alignment="CENTER" contentDisplay="CENTER" layoutX="117.0" layoutY="-9.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol0" prefHeight="70.0" prefWidth="25.0" rotate="-90.0" text="&gt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="165.0" layoutY="460.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="\\/">
+                  <Button id="1" fx:id="top1Button" alignment="CENTER" contentDisplay="CENTER" layoutX="187.0" layoutY="-9.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol1" prefHeight="70.0" prefWidth="25.0" rotate="-90.0" text="&gt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="460.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="\\/">
+                  <Button id="2" fx:id="top2Button" alignment="CENTER" contentDisplay="CENTER" layoutX="257.0" layoutY="-9.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol2" prefHeight="70.0" prefWidth="25.0" rotate="-90.0" text="&gt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="305.0" layoutY="460.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="\\/">
+                  <Button id="3" fx:id="top3Button" alignment="CENTER" contentDisplay="CENTER" layoutX="328.0" layoutY="-9.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol3" prefHeight="70.0" prefWidth="25.0" rotate="-90.0" text="&gt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="375.0" layoutY="460.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="\\/">
+                  <Button id="4" fx:id="top4Button" alignment="CENTER" contentDisplay="CENTER" layoutX="398.0" layoutY="-9.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol4" prefHeight="70.0" prefWidth="25.0" rotate="-90.0" text="&gt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="445.0" layoutY="460.0" mnemonicParsing="false" onMouseClicked="#incLevettBTopBotClick" prefHeight="25.0" prefWidth="70.0" text="\\/">
+                  <Button id="5" fx:id="top5Button" alignment="CENTER" contentDisplay="CENTER" layoutX="468.0" layoutY="-9.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol5" prefHeight="70.0" prefWidth="25.0" rotate="-90.0" text="&gt;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
