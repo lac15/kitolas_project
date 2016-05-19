@@ -16,8 +16,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Súgó">
             <items>
-              <MenuItem mnemonicParsing="false" text="Szabályok" />
-                  <MenuItem mnemonicParsing="false" text="Statisztika" />
+              <MenuItem mnemonicParsing="false" onAction="#szabalyokKitolas" text="Szabályok" />
             </items>
           </Menu>
         </menus>

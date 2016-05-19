@@ -167,20 +167,20 @@ public class KitolasController {
 	@FXML
 	private Circle circle55W;
 	
-	@FXML
+	/*@FXML
 	private Circle [][] circlesB = {{circle00B, circle01B, circle02B, circle03B, circle04B, circle05B},
 									{circle10B, circle11B, circle12B, circle13B, circle14B, circle15B},
 									{circle20B, circle21B, circle22B, circle23B, circle24B, circle25B},
 									{circle30B, circle31B, circle32B, circle33B, circle34B, circle35B},
 									{circle40B, circle41B, circle42B, circle43B, circle44B, circle45B},
-									{circle50B, circle51B, circle52B, circle53B, circle54B, circle55B}};
-	@FXML
+									{circle50B, circle51B, circle52B, circle53B, circle54B, circle55B}};*/
+	/*@FXML
 	private Circle [][] circlesW = {{circle00W, circle01W, circle02W, circle03W, circle04W, circle05W},
 									{circle10W, circle11W, circle12W, circle13W, circle14W, circle15W},
 									{circle20W, circle21W, circle22W, circle23W, circle24W, circle25W},
 									{circle30W, circle31W, circle32W, circle33W, circle34W, circle35W},
 									{circle40W, circle41W, circle42W, circle43W, circle44W, circle45W},
-									{circle50W, circle51W, circle52W, circle53W, circle54W, circle55W}};
+									{circle50W, circle51W, circle52W, circle53W, circle54W, circle55W}};*/
 	
 	@FXML
 	private Button top0Button;
@@ -294,25 +294,7 @@ public class KitolasController {
 		int feher = 0;
 		int fekete = 0;
 
-		lepes = 0;
-		korSzam = 1;
-		
-		kitolasData.setKorSzam("1/36");
-		korLabel.setText(kitolasData.getKorSzam());
-		kitolasData.setTablanB("6");
-		tablanBLabel.setText(kitolasData.getTablanB());
-		kitolasData.setLevettB("0");
-		levettBLabel.setText(kitolasData.getLevettB());
-		kitolasData.setTablanW("6");
-		tablanWLabel.setText(kitolasData.getTablanW());
-		kitolasData.setLevettW("0");
-		levettWLabel.setText(kitolasData.getLevettW());
-		
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 6; j++) {
-				kitolasData.setElem(i, j, 0);
-			}
-		}
+		clearTable();
 
 		while (feher != 6) {
 			row = rand.nextInt(6);
@@ -438,7 +420,7 @@ public class KitolasController {
 			startKitolasGame(main.getKitolData());
 			paintKitolasTable(main.getKitolData());
 		} else {
-			// ... user chose CANCEL or closed the dialog
+			;
 		}
 	}
 	
@@ -697,30 +679,12 @@ public class KitolasController {
 	private void incKor() {
 		lepes++;
 		if (lepes % 2 == 0) {
-			korLabel.setText(++korSzam + "/36");
+			korSzam++;
+			main.getKitolData().setKorSzam(korSzam + "/36");
+			korLabel.setText(korSzam + "/36");
 		}
 	}
-
-	@FXML
-	private void incLevettBTopBotClick() {
-		int sz = Integer.parseInt(main.getKitolData().getLevettB()) + 1;
-		main.getKitolData().setLevettB(Integer.toString(sz));
-
-		levettBLabel.setText(main.getKitolData().getLevettB());
-		
-		popupWinnerCheck();
-	}
-
-	@FXML
-	private void incLevettWLeftRightClick() {
-		int sz = Integer.parseInt(main.getKitolData().getLevettW()) + 1;
-		main.getKitolData().setLevettW(sz + "");
-
-		levettWLabel.setText(main.getKitolData().getLevettW());
-		
-		popupWinnerCheck();
-	}
-
+	
 	private void popupWinner(String gyoztes) {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Győztes");
@@ -736,7 +700,7 @@ public class KitolasController {
 		if (result.get() == buttonTypeIgen) {
 			startGame();
 		} else {
-			// ... user chose CANCEL or closed the dialog
+			clearTable();
 		}
 	}
 	
@@ -755,7 +719,7 @@ public class KitolasController {
 		if (result.get() == buttonTypeIgen) {
 			startGame();
 		} else {
-			// ... user chose CANCEL or closed the dialog
+			clearTable();
 		}
 	}
 
@@ -765,11 +729,63 @@ public class KitolasController {
 			popupWinner("Feher");
 		} else if (kitolData.getLevettW().equals("6")) {
 			popupWinner("Fekete");
-		} else if ((kitolData.getKorSzam().equals("36/36") && (kitolData.getLevettW().equals(kitolData.getLevettB())))) {
-			popupDraw();
+		} else if (kitolData.getKorSzam().equals("36/36")) {
+			if (kitolData.getLevettW().equals(kitolData.getLevettB())) {
+				popupDraw();
+			} else {
+				if (Integer.parseInt(kitolData.getTablanW()) > Integer.parseInt(kitolData.getTablanB())) {
+					popupWinner("Feher");
+				} else {
+					popupWinner("Fekete");
+				}
+			}
 		} 
 	}
 
+	private void clearTable() {
+		lepes = 0;
+		korSzam = 1;
+		
+		KitolasData kitolasData = main.getKitolData();
+		kitolasData.setKorSzam("1/36");
+		korLabel.setText(kitolasData.getKorSzam());
+		kitolasData.setTablanB("6");
+		tablanBLabel.setText(kitolasData.getTablanB());
+		kitolasData.setLevettB("0");
+		levettBLabel.setText(kitolasData.getLevettB());
+		kitolasData.setTablanW("6");
+		tablanWLabel.setText(kitolasData.getTablanW());
+		kitolasData.setLevettW("0");
+		levettWLabel.setText(kitolasData.getLevettW());
+		
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 6; j++) {
+				kitolasData.setElem(i, j, 0);
+			}
+		}
+		
+		paintKitolasTable(kitolasData);
+	}
+	
+	@FXML
+	private void szabalyokKitolas() {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Szabályok");
+		alert.setHeaderText("Játékszabályok");
+		alert.setContentText("A 6x6 mezőből álló táblán a játékosoknak 6 fehér, illetve 6 fekete kavics áll "
+				+ "rendekezésükre, melyek elhelyezkedése vélelenszerű.\n"
+				+ "Az adott játékos a saját körében kiválaszthat egy sort vagy egy oszlopot, melyet "
+				+ "függőlegesen vagy vízszintesen eltolhat egy mezővel. Eltoláskor a szélső mezőn lévő kavics "
+				+ "lekerül a tábláról.\n"
+				+ "A játék célja, hogy 6x6, azaz 36, körön belül az ellenfél minél több kavicsát 'kitoljuk' "
+				+ "a tábláról, azaz nekünk maradjon több kavicsunk.\n"
+				+ "Ha a 36 kör végén mindkét játékosnak ugyanannyi kavicsa marad a táblán akkor a játék "
+				+ "döntetlen.\n"
+				+ "Jó szórakozást! :)");
+
+		alert.showAndWait();
+	}
+	
 	@FXML
 	private void exitKitolas() {
 		System.exit(0);
