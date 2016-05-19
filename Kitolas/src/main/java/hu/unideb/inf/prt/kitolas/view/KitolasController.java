@@ -10,20 +10,178 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.shape.Circle;
 
 public class KitolasController {
 
 	Main main;
 
-	/*@FXML private TableView<KitolasData> kitolasTable;*/
-
 	private int lepes = 0;
 	private int korSzam = 1;
 	private int aktLevett = 0;
 
+	@FXML
+	private Circle circle00B;
+	@FXML
+	private Circle circle00W;
+	@FXML
+	private Circle circle01B;
+	@FXML
+	private Circle circle01W;
+	@FXML
+	private Circle circle02B;
+	@FXML
+	private Circle circle02W;
+	@FXML
+	private Circle circle03B;
+	@FXML
+	private Circle circle03W;
+	@FXML
+	private Circle circle04B;
+	@FXML
+	private Circle circle04W;
+	@FXML
+	private Circle circle05B;
+	@FXML
+	private Circle circle05W;
+	@FXML
+	private Circle circle10B;
+	@FXML
+	private Circle circle10W;
+	@FXML
+	private Circle circle11B;
+	@FXML
+	private Circle circle11W;
+	@FXML
+	private Circle circle12B;
+	@FXML
+	private Circle circle12W;
+	@FXML
+	private Circle circle13B;
+	@FXML
+	private Circle circle13W;
+	@FXML
+	private Circle circle14B;
+	@FXML
+	private Circle circle14W;
+	@FXML
+	private Circle circle15B;
+	@FXML
+	private Circle circle15W;
+	@FXML
+	private Circle circle20B;
+	@FXML
+	private Circle circle20W;
+	@FXML
+	private Circle circle21B;
+	@FXML
+	private Circle circle21W;
+	@FXML
+	private Circle circle22B;
+	@FXML
+	private Circle circle22W;
+	@FXML
+	private Circle circle23B;
+	@FXML
+	private Circle circle23W;
+	@FXML
+	private Circle circle24B;
+	@FXML
+	private Circle circle24W;
+	@FXML
+	private Circle circle25B;
+	@FXML
+	private Circle circle25W;
+	@FXML
+	private Circle circle30B;
+	@FXML
+	private Circle circle30W;
+	@FXML
+	private Circle circle31B;
+	@FXML
+	private Circle circle31W;
+	@FXML
+	private Circle circle32B;
+	@FXML
+	private Circle circle32W;
+	@FXML
+	private Circle circle33B;
+	@FXML
+	private Circle circle33W;
+	@FXML
+	private Circle circle34B;
+	@FXML
+	private Circle circle34W;
+	@FXML
+	private Circle circle35B;
+	@FXML
+	private Circle circle35W;
+	@FXML
+	private Circle circle40B;
+	@FXML
+	private Circle circle40W;
+	@FXML
+	private Circle circle41B;
+	@FXML
+	private Circle circle41W;
+	@FXML
+	private Circle circle42B;
+	@FXML
+	private Circle circle42W;
+	@FXML
+	private Circle circle43B;
+	@FXML
+	private Circle circle43W;
+	@FXML
+	private Circle circle44B;
+	@FXML
+	private Circle circle44W;
+	@FXML
+	private Circle circle45B;
+	@FXML
+	private Circle circle45W;
+	@FXML
+	private Circle circle50B;
+	@FXML
+	private Circle circle50W;
+	@FXML
+	private Circle circle51B;
+	@FXML
+	private Circle circle51W;
+	@FXML
+	private Circle circle52B;
+	@FXML
+	private Circle circle52W;
+	@FXML
+	private Circle circle53B;
+	@FXML
+	private Circle circle53W;
+	@FXML
+	private Circle circle54B;
+	@FXML
+	private Circle circle54W;
+	@FXML
+	private Circle circle55B;
+	@FXML
+	private Circle circle55W;
+	
+	@FXML
+	private Circle [][] circlesB = {{circle00B, circle01B, circle02B, circle03B, circle04B, circle05B},
+									{circle10B, circle11B, circle12B, circle13B, circle14B, circle15B},
+									{circle20B, circle21B, circle22B, circle23B, circle24B, circle25B},
+									{circle30B, circle31B, circle32B, circle33B, circle34B, circle35B},
+									{circle40B, circle41B, circle42B, circle43B, circle44B, circle45B},
+									{circle50B, circle51B, circle52B, circle53B, circle54B, circle55B}};
+	@FXML
+	private Circle [][] circlesW = {{circle00W, circle01W, circle02W, circle03W, circle04W, circle05W},
+									{circle10W, circle11W, circle12W, circle13W, circle14W, circle15W},
+									{circle20W, circle21W, circle22W, circle23W, circle24W, circle25W},
+									{circle30W, circle31W, circle32W, circle33W, circle34W, circle35W},
+									{circle40W, circle41W, circle42W, circle43W, circle44W, circle45W},
+									{circle50W, circle51W, circle52W, circle53W, circle54W, circle55W}};
+	
 	@FXML
 	private Button top0Button;
 	@FXML
@@ -99,11 +257,20 @@ public class KitolasController {
 		this.main = main;
 		showKitolasData(main.getKitolData());
 	}
-
-	/*
-	 * @FXML private void initialize() { showKitolasData(null); }
-	 */
-
+	
+	private void setCircleOpacity(int aktElem, Circle aktCircleW, Circle aktCircleB) {
+		if (aktElem == 1) {
+			aktCircleW.setOpacity(100.0);
+			aktCircleB.setOpacity(0.0);
+		} else if (aktElem == 2) {
+			aktCircleW.setOpacity(0.0);
+			aktCircleB.setOpacity(100.0);
+		} else if (aktElem == 0) {
+			aktCircleW.setOpacity(0.0);
+			aktCircleB.setOpacity(0.0);
+		}
+	}
+	
 	private void showKitolasData(KitolasData kitolasData) {
 		if (kitolasData == null) {
 			tablanBLabel.setText("");
@@ -127,6 +294,20 @@ public class KitolasController {
 		int feher = 0;
 		int fekete = 0;
 
+		lepes = 0;
+		korSzam = 1;
+		
+		kitolasData.setKorSzam("1/36");
+		korLabel.setText(kitolasData.getKorSzam());
+		kitolasData.setTablanB("6");
+		tablanBLabel.setText(kitolasData.getTablanB());
+		kitolasData.setLevettB("0");
+		levettBLabel.setText(kitolasData.getLevettB());
+		kitolasData.setTablanW("6");
+		tablanWLabel.setText(kitolasData.getTablanW());
+		kitolasData.setLevettW("0");
+		levettWLabel.setText(kitolasData.getLevettW());
+		
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 6; j++) {
 				kitolasData.setElem(i, j, 0);
@@ -160,6 +341,87 @@ public class KitolasController {
 		}
 	}
 
+	private void paintKitolasTable(KitolasData kitolasData) {
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 6; j++) {
+				int aktElem = kitolasData.getElem(i, j);
+				if ((i == 0) && (j == 0)) {
+					setCircleOpacity(aktElem, circle00W, circle00B);
+				} else if((i == 0) && (j == 1)) {
+					setCircleOpacity(aktElem, circle01W, circle01B);
+				} else if((i == 0) && (j == 2)) {
+					setCircleOpacity(aktElem, circle02W, circle02B);
+				} else if((i == 0) && (j == 3)) {
+					setCircleOpacity(aktElem, circle03W, circle03B);
+				} else if((i == 0) && (j == 4)) {
+					setCircleOpacity(aktElem, circle04W, circle04B);
+				} else if((i == 0) && (j == 5)) {
+					setCircleOpacity(aktElem, circle05W, circle05B);
+				} else if((i == 1) && (j == 0)) {
+					setCircleOpacity(aktElem, circle10W, circle10B);
+				} else if((i == 1) && (j == 1)) {
+					setCircleOpacity(aktElem, circle11W, circle11B);
+				} else if((i == 1) && (j == 2)) {
+					setCircleOpacity(aktElem, circle12W, circle12B);
+				} else if((i == 1) && (j == 3)) {
+					setCircleOpacity(aktElem, circle13W, circle13B);
+				} else if((i == 1) && (j == 4)) {
+					setCircleOpacity(aktElem, circle14W, circle14B);
+				} else if((i == 1) && (j == 5)) {
+					setCircleOpacity(aktElem, circle15W, circle15B);
+				} else if((i == 2) && (j == 0)) {
+					setCircleOpacity(aktElem, circle20W, circle20B);
+				} else if((i == 2) && (j == 1)) {
+					setCircleOpacity(aktElem, circle21W, circle21B);
+				} else if((i == 2) && (j == 2)) {
+					setCircleOpacity(aktElem, circle22W, circle22B);
+				} else if((i == 2) && (j == 3)) {
+					setCircleOpacity(aktElem, circle23W, circle23B);
+				} else if((i == 2) && (j == 4)) {
+					setCircleOpacity(aktElem, circle24W, circle24B);
+				} else if((i == 2) && (j == 5)) {
+					setCircleOpacity(aktElem, circle25W, circle25B);
+				} else if((i == 3) && (j == 0)) {
+					setCircleOpacity(aktElem, circle30W, circle30B);
+				} else if((i == 3) && (j == 1)) {
+					setCircleOpacity(aktElem, circle31W, circle31B);
+				} else if((i == 3) && (j == 2)) {
+					setCircleOpacity(aktElem, circle32W, circle32B);
+				} else if((i == 3) && (j == 3)) {
+					setCircleOpacity(aktElem, circle33W, circle33B);
+				} else if((i == 3) && (j == 4)) {
+					setCircleOpacity(aktElem, circle34W, circle34B);
+				} else if((i == 3) && (j == 5)) {
+					setCircleOpacity(aktElem, circle35W, circle35B);
+				} else if((i == 4) && (j == 0)) {
+					setCircleOpacity(aktElem, circle40W, circle40B);
+				} else if((i == 4) && (j == 1)) {
+					setCircleOpacity(aktElem, circle41W, circle41B);
+				} else if((i == 4) && (j == 2)) {
+					setCircleOpacity(aktElem, circle42W, circle42B);
+				} else if((i == 4) && (j == 3)) {
+					setCircleOpacity(aktElem, circle43W, circle43B);
+				} else if((i == 4) && (j == 4)) {
+					setCircleOpacity(aktElem, circle44W, circle44B);
+				} else if((i == 4) && (j == 5)) {
+					setCircleOpacity(aktElem, circle45W, circle45B);
+				} else if((i == 5) && (j == 0)) {
+					setCircleOpacity(aktElem, circle50W, circle50B);
+				} else if((i == 5) && (j == 1)) {
+					setCircleOpacity(aktElem, circle51W, circle51B);
+				} else if((i == 5) && (j == 2)) {
+					setCircleOpacity(aktElem, circle52W, circle52B);
+				} else if((i == 5) && (j == 3)) {
+					setCircleOpacity(aktElem, circle53W, circle53B);
+				} else if((i == 5) && (j == 4)) {
+					setCircleOpacity(aktElem, circle54W, circle54B);
+				} else if((i == 5) && (j == 5)) {
+					setCircleOpacity(aktElem, circle55W, circle55B);
+				}
+			}
+		}
+	}
+	
 	@FXML
 	private void startGame() {
 		Alert alert = new Alert(AlertType.WARNING);
@@ -174,11 +436,40 @@ public class KitolasController {
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == buttonTypeIgen) {
 			startKitolasGame(main.getKitolData());
+			paintKitolasTable(main.getKitolData());
 		} else {
 			// ... user chose CANCEL or closed the dialog
 		}
 	}
-
+	
+	private void levettInc() {
+		KitolasData kitolasData = main.getKitolData();
+		int sz = 0;
+		if (aktLevett == 1) {
+			sz = Integer.parseInt(kitolasData.getLevettW());
+			kitolasData.setLevettW(Integer.toString(++sz));
+			levettWLabel.setText(kitolasData.getLevettW());
+		} else if (aktLevett == 2) {
+			sz = Integer.parseInt(kitolasData.getLevettB());
+			kitolasData.setLevettB(Integer.toString(++sz));
+			levettBLabel.setText(kitolasData.getLevettB());
+		}
+	}
+	
+	private void tablanDec() {
+		KitolasData kitolasData = main.getKitolData();
+		int sz = 0;
+		if (aktLevett == 1) {
+			sz = Integer.parseInt(kitolasData.getTablanW());
+			kitolasData.setTablanW(Integer.toString(--sz));
+			tablanWLabel.setText(kitolasData.getTablanW());
+		} else if (aktLevett == 2) {
+			sz = Integer.parseInt(kitolasData.getTablanB());
+			kitolasData.setTablanB(Integer.toString(--sz));
+			tablanBLabel.setText(kitolasData.getTablanB());
+		}
+	}
+	
 	private void shiftUp(KitolasData kitolasData, int oIndex) {
 		for (int i = 0; i < 6; i++) {
 			int aktElem = kitolasData.getElem(i, oIndex);
@@ -189,7 +480,17 @@ public class KitolasController {
 				kitolasData.setElem(i, oIndex, 0);
 			}
 		}
+		
+		levettInc();
+		
+		tablanDec();
+		
+		paintKitolasTable(kitolasData);
 
+		incKor();
+		
+		popupWinnerCheck();
+		
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 6; j++) {
 				System.out.print(kitolasData.getElem(i, j));
@@ -210,7 +511,17 @@ public class KitolasController {
 				kitolasData.setElem(i, oIndex, 0);
 			}
 		}
+		
+		levettInc();
+		
+		tablanDec();
 
+		paintKitolasTable(kitolasData);
+		
+		incKor();
+		
+		popupWinnerCheck();
+		
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 6; j++) {
 				System.out.print(kitolasData.getElem(i, j));
@@ -231,7 +542,17 @@ public class KitolasController {
 				kitolasData.setElem(sIndex, j, 0);
 			}
 		}
+		
+		levettInc();
+		
+		tablanDec();
+		
+		paintKitolasTable(kitolasData);
 
+		incKor();
+		
+		popupWinnerCheck();
+		
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 6; j++) {
 				System.out.print(kitolasData.getElem(i, j));
@@ -253,6 +574,16 @@ public class KitolasController {
 			}
 		}
 
+		levettInc();
+		
+		tablanDec();
+		
+		paintKitolasTable(kitolasData);
+		
+		incKor();
+		
+		popupWinnerCheck();
+		
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 6; j++) {
 				System.out.print(kitolasData.getElem(i, j));
@@ -363,23 +694,20 @@ public class KitolasController {
 		shiftRight(main.getKitolData(), Integer.parseInt(right5Button.getId()));
 	}
 	
-	@FXML
 	private void incKor() {
-		korLabel.setText(++korSzam + "/36");
+		lepes++;
+		if (lepes % 2 == 0) {
+			korLabel.setText(++korSzam + "/36");
+		}
 	}
 
 	@FXML
 	private void incLevettBTopBotClick() {
 		int sz = Integer.parseInt(main.getKitolData().getLevettB()) + 1;
-		main.getKitolData().setLevettB(sz + "");
+		main.getKitolData().setLevettB(Integer.toString(sz));
 
 		levettBLabel.setText(main.getKitolData().getLevettB());
-
-		lepes++;
-		if (lepes % 2 == 0) {
-			incKor();
-		}
-
+		
 		popupWinnerCheck();
 	}
 
@@ -389,12 +717,7 @@ public class KitolasController {
 		main.getKitolData().setLevettW(sz + "");
 
 		levettWLabel.setText(main.getKitolData().getLevettW());
-
-		lepes++;
-		if (lepes % 2 == 0) {
-			incKor();
-		}
-
+		
 		popupWinnerCheck();
 	}
 
@@ -416,13 +739,35 @@ public class KitolasController {
 			// ... user chose CANCEL or closed the dialog
 		}
 	}
+	
+	private void popupDraw() {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Eredmény");
+		alert.setHeaderText("Döntetlen!");
+		alert.setContentText("Új játék?");
+
+		ButtonType buttonTypeIgen = new ButtonType("Igen");
+		ButtonType buttonTypeNem = new ButtonType("Nem");
+
+		alert.getButtonTypes().setAll(buttonTypeIgen, buttonTypeNem);
+
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == buttonTypeIgen) {
+			startGame();
+		} else {
+			// ... user chose CANCEL or closed the dialog
+		}
+	}
 
 	private void popupWinnerCheck() {
-		if (main.getKitolData().getLevettB().equals("6")) {
+		KitolasData kitolData = main.getKitolData();
+		if (kitolData.getLevettB().equals("6")) {
 			popupWinner("Feher");
-		} else if (main.getKitolData().getLevettW().equals("6")) {
+		} else if (kitolData.getLevettW().equals("6")) {
 			popupWinner("Fekete");
-		}
+		} else if ((kitolData.getKorSzam().equals("36/36") && (kitolData.getLevettW().equals(kitolData.getLevettB())))) {
+			popupDraw();
+		} 
 	}
 
 	@FXML
