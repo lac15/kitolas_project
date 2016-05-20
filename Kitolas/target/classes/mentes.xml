@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kitolas>
+	<lastGame>
+		<korSzam>1</korSzam>
+		<lepesSzam>0</lepesSzam>
+		<tablanW>5</tablanW>
+		<levettW>1</levettW>
+		<tablanB>5</tablanB>
+		<levettB>1</levettB>
+		<tabla0>0,0,0,0,0,0</tabla0>
+		<tabla1>0,0,0,0,0,0</tabla1>
+		<tabla2>0,0,0,0,0,0</tabla2>
+		<tabla3>0,0,0,0,0,0</tabla3>
+		<tabla4>0,0,0,0,0,0</tabla4>
+		<tabla5>0,0,0,0,0,0</tabla5>
+	</lastGame>
+</kitolas>

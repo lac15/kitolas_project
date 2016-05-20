@@ -1,4 +1,4 @@
-package hu.unideb.inf.prt.kitolas.view;
+package hu.unideb.inf.prt.kitolas.controller;
 
 import hu.unideb.inf.prt.kitolas.model.KitolasData;
 

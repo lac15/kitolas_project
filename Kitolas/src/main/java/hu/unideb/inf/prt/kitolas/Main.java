@@ -2,11 +2,9 @@ package hu.unideb.inf.prt.kitolas;
 
 import java.io.IOException;
 
+import hu.unideb.inf.prt.kitolas.controller.KitolasController;
 import hu.unideb.inf.prt.kitolas.model.KitolasData;
-import hu.unideb.inf.prt.kitolas.view.KitolasController;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -15,7 +13,6 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 	
-	private ObservableList<KitolasData> kitolasDataList = FXCollections.observableArrayList();
 	private KitolasData kitolData;
 	
 	private Stage primaryStage;
@@ -69,14 +66,6 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 		
-	}
-
-	public ObservableList<KitolasData> getKitolasDataList() {
-		return kitolasDataList;
-	}
-
-	public void setPetDataList(ObservableList<KitolasData> kitolasDataList) {
-		this.kitolasDataList = kitolasDataList;
 	}
 
 	public KitolasData getKitolData() {
