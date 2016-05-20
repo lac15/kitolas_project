@@ -32,12 +32,12 @@
 				<execution>
 					<id>check-versions</id>
 					<goals>
-                        <goal>enforce</goal>
-                    </goals>
+						<goal>enforce</goal>
+					</goals>
 					<configuration>
 						<rules>
 							<requireMavenVersion>
-								<version>[3.0)</version>
+								<version>[3.0,)</version>
 							</requireMavenVersion>
 							<requireJavaVersion>
 								<version>1.8</version>

@@ -10,19 +10,21 @@ public class KitolasData {
 	private StringProperty tablanW;
 	private StringProperty levettW;
 	private StringProperty korSzam;
+	private StringProperty lepesSzam;
 	
 	private int [][] tabla = new int [6][6];
 		
 	public KitolasData() {
-		this(null,null,null,null,null);
+		this(null,null,null,null,null,null);
 	}
 
-	public KitolasData(String tablanB, String levettB, String tablanW, String levettW, String korSzam) {
+	public KitolasData(String tablanB, String levettB, String tablanW, String levettW, String korSzam, String lepesSzam) {
 		this.tablanB = new SimpleStringProperty(tablanB);
 		this.levettB = new SimpleStringProperty(levettB);
 		this.tablanW = new SimpleStringProperty(tablanW);
 		this.levettW = new SimpleStringProperty(levettW);
 		this.korSzam = new SimpleStringProperty(korSzam);
+		this.lepesSzam = new SimpleStringProperty(lepesSzam);
 	}
 
 	public StringProperty getTablanBProperty() {
@@ -55,6 +57,12 @@ public class KitolasData {
 	public void setKorSzamProperty(StringProperty korSzam) {
 		this.korSzam = korSzam;
 	}
+	public StringProperty getLepesSzamProperty() {
+		return lepesSzam;
+	}
+	public void setLepesSzamProperty(StringProperty lepesSzam) {
+		this.lepesSzam = lepesSzam;
+	}
 
 
 	public String getTablanB() {
@@ -86,6 +94,12 @@ public class KitolasData {
 	}
 	public void setKorSzam(String korSzam) {
 		this.korSzam.set(korSzam);
+	}
+	public String getLepesSzam() {
+		return lepesSzam.get();
+	}
+	public void setLepesSzam(String lepesSzam) {
+		this.lepesSzam.set(lepesSzam);
 	}
 
 	public KitolasData(int[][] tabla) {

@@ -28,7 +28,7 @@ public class Main extends Application {
 	}
 
 	public Main(){
-		kitolData = new KitolasData ("0", "0", "0", "0", "0/36");
+		kitolData = new KitolasData ("0", "0", "0", "0", "0/36", "0");
 	}
 	
 	

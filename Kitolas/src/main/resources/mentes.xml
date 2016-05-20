@@ -7,11 +7,41 @@
 		<levettW>1</levettW>
 		<tablanB>5</tablanB>
 		<levettB>1</levettB>
-		<tabla0>0,0,0,0,0,0</tabla0>
-		<tabla1>0,0,0,0,0,0</tabla1>
-		<tabla2>0,0,0,0,0,0</tabla2>
-		<tabla3>0,0,0,0,0,0</tabla3>
-		<tabla4>0,0,0,0,0,0</tabla4>
-		<tabla5>0,0,0,0,0,0</tabla5>
+		<tabla00>1</tabla00>
+		<tabla01>1</tabla01>
+		<tabla02>1</tabla02>
+		<tabla03>1</tabla03>
+		<tabla04>1</tabla04>
+		<tabla05>1</tabla05>
+		<tabla10>1</tabla10>
+		<tabla11>1</tabla11>
+		<tabla12>1</tabla12>
+		<tabla13>1</tabla13>
+		<tabla14>1</tabla14>
+		<tabla15>1</tabla15>
+		<tabla20>1</tabla20>
+		<tabla21>1</tabla21>
+		<tabla22>1</tabla22>
+		<tabla23>1</tabla23>
+		<tabla24>1</tabla24>
+		<tabla25>1</tabla25>
+		<tabla30>1</tabla30>
+		<tabla31>1</tabla31>
+		<tabla32>1</tabla32>
+		<tabla33>1</tabla33>
+		<tabla34>1</tabla34>
+		<tabla35>1</tabla35>
+		<tabla40>1</tabla40>
+		<tabla41>1</tabla41>
+		<tabla42>1</tabla42>
+		<tabla43>1</tabla43>
+		<tabla44>1</tabla44>
+		<tabla45>1</tabla45>
+		<tabla50>1</tabla50>
+		<tabla51>1</tabla51>
+		<tabla52>1</tabla52>
+		<tabla53>1</tabla53>
+		<tabla54>1</tabla54>
+		<tabla55>1</tabla55>
 	</lastGame>
 </kitolas>
