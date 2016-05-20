@@ -1,4 +1,4 @@
-package hu.unideb.inf.prt.kitolas.controller;
+package hu.unideb.inf.prt.kitolas.view;
 
 import hu.unideb.inf.prt.kitolas.model.KitolasData;
 
@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.Random;
 
 import hu.unideb.inf.prt.kitolas.Main;
+import hu.unideb.inf.prt.kitolas.XMLHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -323,6 +324,28 @@ public class KitolasController {
 		}
 	}
 
+	private void startKitolasGameSaved(KitolasData kitol, KitolasData kitolasData) {
+		kitol.setKorSzam(kitolasData.getKorSzam() + "/36");
+		kitol.setLepesSzam(kitolasData.getLepesSzam());
+		kitol.setTablanW(kitolasData.getTablanW());
+		kitol.setLevettW(kitolasData.getLevettW());
+		kitol.setTablanB(kitolasData.getTablanB());
+		kitol.setLevettB(kitolasData.getLevettB());
+		
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 6; j++) {
+				kitol.setElem(i, j, kitolasData.getElem(i, j));
+			}
+		}
+		
+		/*for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 6; j++) {
+				System.out.print(kitol.getElem(i, j));
+			}
+			System.out.println();
+		}*/
+	}
+	
 	private void paintKitolasTable(KitolasData kitolasData) {
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 6; j++) {
@@ -767,6 +790,28 @@ public class KitolasController {
 		paintKitolasTable(kitolasData);
 	}
 	
+	@FXML
+	private void mentettBetolt() {
+		Alert alert = new Alert(AlertType.WARNING);
+		alert.setTitle("Mentett játék betöltése");
+		alert.setHeaderText("Biztosan betöltöd a mentett játékot?");
+
+		ButtonType buttonTypeIgen = new ButtonType("Igen");
+		ButtonType buttonTypeNem = new ButtonType("Nem");
+
+		alert.getButtonTypes().setAll(buttonTypeIgen, buttonTypeNem);
+
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == buttonTypeIgen) {
+			startKitolasGameSaved(main.getKitolData(), XMLHandler.XMLRead());
+			startKitolasGame(main.getKitolData());
+			paintKitolasTable(main.getKitolData());
+		} else {
+			;
+		}
+		
+	}
+		
 	@FXML
 	private void szabalyokKitolas() {
 		Alert alert = new Alert(AlertType.INFORMATION);

@@ -2,8 +2,8 @@ package hu.unideb.inf.prt.kitolas;
 
 import java.io.IOException;
 
-import hu.unideb.inf.prt.kitolas.controller.KitolasController;
 import hu.unideb.inf.prt.kitolas.model.KitolasData;
+import hu.unideb.inf.prt.kitolas.view.KitolasController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

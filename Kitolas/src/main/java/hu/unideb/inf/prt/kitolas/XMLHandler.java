@@ -1,7 +1,13 @@
 package hu.unideb.inf.prt.kitolas;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -18,11 +24,25 @@ public class XMLHandler extends DefaultHandler {
  
  
     //getter method for employee list
-    public List<KitolasData> getEmpList() {
+    public List<KitolasData> getkitolList() {
         return kitolList;
     }
  
- 
+    public static KitolasData XMLRead() {
+    	KitolasData kitolas = null;
+    	SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+	    try {
+	    	SAXParser saxParser = saxParserFactory.newSAXParser();
+	        XMLHandler handler = new XMLHandler();
+	        saxParser.parse(new File("/Users/SEVEN/Desktop/progtech/kitolas_project/Kitolas/src/main/resources/mentes.xml"), handler);
+	        List<KitolasData> kitolList = handler.getkitolList();
+	        kitolas = kitolList.get(0);
+	    } catch (ParserConfigurationException | SAXException | IOException e){
+			e.printStackTrace();
+	    }
+		return kitolas;
+    }
+    
     boolean bKorSzam = false;
     boolean bLepesSzam = false;
     boolean bTablanW = false;
@@ -72,7 +92,8 @@ public class XMLHandler extends DefaultHandler {
             throws SAXException {
  
         if (qName.equalsIgnoreCase("lastGame")) {
-            if (kitolList == null)
+            kitol = new KitolasData();
+        	if (kitolList == null)
                 kitolList = new ArrayList<KitolasData>();
         } else if (qName.equalsIgnoreCase("korSzam")) {
             //set boolean values for fields, will be used in setting Employee variables
@@ -176,7 +197,6 @@ public class XMLHandler extends DefaultHandler {
     public void characters(char ch[], int start, int length) throws SAXException {
  
         if (bKorSzam) {
-            //age element, set Employee age
             kitol.setKorSzam(new String(ch, start, length));
             bKorSzam = false;
         } else if (bLepesSzam) {
