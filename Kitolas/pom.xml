@@ -4,6 +4,23 @@
   <artifactId>Kitolas</artifactId>
   <version>1.0</version>
   
+  <description>Kitolas nevű kétszemélyes táblajáték.</description>
+  
+  <developers>
+	<developer>
+		<email>laszlo.erdohegyi@gmail.com</email>
+		<name>Erdőhegyi László</name>
+		<url>https://github.com/lac15</url>
+		<id>lac15</id>
+	</developer>
+  </developers>
+  
+  <scm>
+	<url>https://github.com/lac15/kitolas_project</url>
+	<connection>scm:git://github.com/lac15/kitolas_project.git</connection>
+	<developerConnection>scm:git:git@github.com/lac15/kitolas_project.git</developerConnection>
+   </scm>
+  
   <build>
   	<plugins>
   		
@@ -14,11 +31,13 @@
 			<executions>
 				<execution>
 					<id>check-versions</id>
-					<!-- Meg kell hogy validate-ben menjen! -->
+					<goals>
+                        <goal>enforce</goal>
+                    </goals>
 					<configuration>
 						<rules>
 							<requireMavenVersion>
-								<version>3.*</version>
+								<version>[3.0)</version>
 							</requireMavenVersion>
 							<requireJavaVersion>
 								<version>1.8</version>
