@@ -244,11 +244,39 @@ public class KitolasController implements Initializable{
 	@FXML
 	private Label korLabel;
 	
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		showKitolasData(kdc.getKt());
 	}
 	
+	
+	private void setVisible() {
+		top0Button.setVisible(true);
+		top1Button.setVisible(true);
+		top2Button.setVisible(true);
+		top3Button.setVisible(true);
+		top4Button.setVisible(true);
+		top5Button.setVisible(true);
+		bot0Button.setVisible(true);
+		bot1Button.setVisible(true);
+		bot2Button.setVisible(true);
+		bot3Button.setVisible(true);
+		bot4Button.setVisible(true);
+		bot5Button.setVisible(true);
+		left0Button.setVisible(true);
+		left1Button.setVisible(true);
+		left2Button.setVisible(true);
+		left3Button.setVisible(true);
+		left4Button.setVisible(true);
+		left5Button.setVisible(true);
+		right0Button.setVisible(true);
+		right1Button.setVisible(true);
+		right2Button.setVisible(true);
+		right3Button.setVisible(true);
+		right4Button.setVisible(true);
+		right5Button.setVisible(true);
+	}
 	private void setCircleOpacity(int aktElem, Circle aktCircleW, Circle aktCircleB) {
 		if (aktElem == 1) {
 			aktCircleW.setOpacity(100.0);
@@ -281,6 +309,8 @@ public class KitolasController implements Initializable{
 	private void startKitolasGame() {
 		clearTable();
 		kdc.startKitolasGameData();
+		
+		setVisible();
 	}
 	
 	private void paintKitolasTable() {
@@ -393,6 +423,7 @@ public class KitolasController implements Initializable{
 			levettBLabel.setText(kdc.getKt().getLevettB());
 			tablanWLabel.setText(kdc.getKt().getTablanW());
 			levettWLabel.setText(kdc.getKt().getLevettW());
+			setVisible();
 		} catch (ParserConfigurationException | SAXException | IOException e) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Hiba!");
@@ -689,7 +720,7 @@ public class KitolasController implements Initializable{
 	}
 	
 	private void incKor() {
-		kdc.incKor();
+		kdc.incKorData();
 		if (Integer.parseInt(kdc.getKt().getLepesSzam()) % 2 == 0) {
 			korLabel.setText(kdc.getKt().getKorSzam());
 		}

@@ -50,13 +50,6 @@ public class KitolasDataController {
 				fekete++;
 			}
 		}
-	
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 6; j++) {
-				System.out.print(kt.getElem(i, j));
-			}
-			System.out.println();
-		}
 	}
 
 	
@@ -130,7 +123,7 @@ public class KitolasDataController {
 		}
 	}
 	
-	public void incKor() {
+	public void incKorData() {
 		int lepes = Integer.parseInt(kt.getLepesSzam());
 		lepes++;
 		kt.setLepesSzam(Integer.toString(lepes));
@@ -152,6 +145,11 @@ public class KitolasDataController {
 
 	public int getAktLevett() {
 		return aktLevett;
+	}
+
+	
+	public void setAktLevett(int aktLevett) {
+		this.aktLevett = aktLevett;
 	}
 	
 }
