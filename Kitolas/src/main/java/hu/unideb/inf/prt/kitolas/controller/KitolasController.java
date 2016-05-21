@@ -1,17 +1,19 @@
 package hu.unideb.inf.prt.kitolas.controller;
 
 import hu.unideb.inf.prt.kitolas.model.KitolasData;
+import hu.unideb.inf.prt.kitolas.model.SavedGame;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
+import org.xml.sax.SAXException;
+
 import hu.unideb.inf.prt.kitolas.Main;
-import hu.unideb.inf.prt.kitolas.SavedGame;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -24,10 +26,10 @@ import javafx.scene.shape.Circle;
 public class KitolasController implements Initializable{
 	Main main;
 	
-	public static KitolasData kt = new KitolasData ("6", "0", "6", "0", "1/36", "0");
+	KitolasDataController kdc = new KitolasDataController();
 	
-	private int aktLevett = 0;
-
+	SavedGame sg = new SavedGame();
+	
 	@FXML
 	private Circle circle00B;
 	@FXML
@@ -173,20 +175,7 @@ public class KitolasController implements Initializable{
 	@FXML
 	private Circle circle55W;
 	
-	/*@FXML
-	private Circle [][] circlesB = {{circle00B, circle01B, circle02B, circle03B, circle04B, circle05B},
-									{circle10B, circle11B, circle12B, circle13B, circle14B, circle15B},
-									{circle20B, circle21B, circle22B, circle23B, circle24B, circle25B},
-									{circle30B, circle31B, circle32B, circle33B, circle34B, circle35B},
-									{circle40B, circle41B, circle42B, circle43B, circle44B, circle45B},
-									{circle50B, circle51B, circle52B, circle53B, circle54B, circle55B}};*/
-	/*@FXML
-	private Circle [][] circlesW = {{circle00W, circle01W, circle02W, circle03W, circle04W, circle05W},
-									{circle10W, circle11W, circle12W, circle13W, circle14W, circle15W},
-									{circle20W, circle21W, circle22W, circle23W, circle24W, circle25W},
-									{circle30W, circle31W, circle32W, circle33W, circle34W, circle35W},
-									{circle40W, circle41W, circle42W, circle43W, circle44W, circle45W},
-									{circle50W, circle51W, circle52W, circle53W, circle54W, circle55W}};*/
+	
 	
 	@FXML
 	private Button top0Button;
@@ -254,19 +243,10 @@ public class KitolasController implements Initializable{
 
 	@FXML
 	private Label korLabel;
-
-	public Main getMain() {
-		return main;
-	}
-
-	public void setMain(Main main) {
-		this.main = main;
-		showKitolasData(kt);
-	}
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		showKitolasData(kdc.getKt());
 	}
 	
 	private void setCircleOpacity(int aktElem, Circle aktCircleW, Circle aktCircleB) {
@@ -299,45 +279,14 @@ public class KitolasController implements Initializable{
 	}
 
 	private void startKitolasGame() {
-		Random rand = new Random();
-		int row = 0;
-		int col = 0;
-		int feher = 0;
-		int fekete = 0;
-
 		clearTable();
-
-		while (feher != 6) {
-			row = rand.nextInt(6);
-			col = rand.nextInt(6);
-
-			if (kt.getElem(row, col) == 0) {
-				kt.setElem(row, col, 1);
-				feher++;
-			}
-		}
-		while (fekete != 6) {
-			row = rand.nextInt(6);
-			col = rand.nextInt(6);
-
-			if (kt.getElem(row, col) == 0) {
-				kt.setElem(row, col, 2);
-				fekete++;
-			}
-		}
-
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 6; j++) {
-				System.out.print(kt.getElem(i, j));
-			}
-			System.out.println();
-		}
+		kdc.startKitolasGameData();
 	}
 	
 	private void paintKitolasTable() {
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 6; j++) {
-				int aktElem = kt.getElem(i, j);
+				int aktElem = kdc.getKt().getElem(i, j);
 				if ((i == 0) && (j == 0)) {
 					setCircleOpacity(aktElem, circle00W, circle00B);
 				} else if((i == 0) && (j == 1)) {
@@ -416,14 +365,40 @@ public class KitolasController implements Initializable{
 	}
 	
 	@FXML
-	public void mentettBetolt() {
-		SavedGame.XMLRead();
-		paintKitolasTable();
-		korLabel.setText(kt.getKorSzam());
-		tablanBLabel.setText(kt.getTablanB());
-		levettBLabel.setText(kt.getLevettB());
-		tablanWLabel.setText(kt.getTablanW());
-		levettWLabel.setText(kt.getLevettW());
+	private void mentes() throws TransformerException, ParserConfigurationException {
+		Alert alert = new Alert(AlertType.WARNING);
+		alert.setTitle("Mentés");
+		alert.setHeaderText("Biztosan mented a játékot?");
+
+		ButtonType buttonTypeIgen = new ButtonType("Igen");
+		ButtonType buttonTypeNem = new ButtonType("Nem");
+
+		alert.getButtonTypes().setAll(buttonTypeIgen, buttonTypeNem);
+
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == buttonTypeIgen) {
+			sg.XMLWrite(kdc.getKt());
+		} else {
+			;
+		}
+	}
+	
+	@FXML
+	private void mentettBetolt() {
+		try {
+			kdc.setKt(sg.XMLRead());
+			paintKitolasTable();
+			korLabel.setText(kdc.getKt().getKorSzam());
+			tablanBLabel.setText(kdc.getKt().getTablanB());
+			levettBLabel.setText(kdc.getKt().getLevettB());
+			tablanWLabel.setText(kdc.getKt().getTablanW());
+			levettWLabel.setText(kdc.getKt().getLevettW());
+		} catch (ParserConfigurationException | SAXException | IOException e) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Hiba!");
+			alert.setHeaderText("Nincs mentett állás amit be lehetne tölteni!");
+			alert.showAndWait();
+		}
 	}
 	
 	@FXML
@@ -447,266 +422,276 @@ public class KitolasController implements Initializable{
 	}
 	
 	private void levettInc() {
-		int sz = 0;
-		if (aktLevett == 1) {
-			sz = Integer.parseInt(kt.getLevettW());
-			kt.setLevettW(Integer.toString(++sz));
-			levettWLabel.setText(kt.getLevettW());
-		} else if (aktLevett == 2) {
-			sz = Integer.parseInt(kt.getLevettB());
-			kt.setLevettB(Integer.toString(++sz));
-			levettBLabel.setText(kt.getLevettB());
+		kdc.levettIncData();
+		if (kdc.getAktLevett() == 1) {
+			levettWLabel.setText(kdc.getKt().getLevettW());
+		} else if (kdc.getAktLevett() == 2) {
+			levettBLabel.setText(kdc.getKt().getLevettB());
 		}
 	}
 	
 	private void tablanDec() {
-		int sz = 0;
-		if (aktLevett == 1) {
-			sz = Integer.parseInt(kt.getTablanW());
-			kt.setTablanW(Integer.toString(--sz));
-			tablanWLabel.setText(kt.getTablanW());
-		} else if (aktLevett == 2) {
-			sz = Integer.parseInt(kt.getTablanB());
-			kt.setTablanB(Integer.toString(--sz));
-			tablanBLabel.setText(kt.getTablanB());
+		kdc.tablanDecData();
+		if (kdc.getAktLevett() == 1) {
+			tablanWLabel.setText(kdc.getKt().getTablanW());
+		} else if (kdc.getAktLevett() == 2) {
+			tablanBLabel.setText(kdc.getKt().getTablanB());
 		}
 	}
 	
-	private void shiftUp(int oIndex) {
-		for (int i = 0; i < 6; i++) {
-			int aktElem = kt.getElem(i, oIndex);
-			if (i == 0) {
-				aktLevett = aktElem;
-			} else {
-				kt.setElem(i - 1, oIndex, aktElem);
-				kt.setElem(i, oIndex, 0);
-			}
-		}
-		
-		levettInc();
-		
-		tablanDec();
-		
-		paintKitolasTable();
+	
 
-		incKor();
-		
-		popupWinnerCheck();
-		
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 6; j++) {
-				System.out.print(kt.getElem(i, j));
-			}
-			System.out.println();
-		}
 
-		System.out.println("Levett elem: " + aktLevett);
-	}
 
-	private void shiftDown(int oIndex) {
-		for (int i = 5; i >= 0; i--) {
-			int aktElem = kt.getElem(i, oIndex);
-			if (i == 5) {
-				aktLevett = aktElem;
-			} else {
-				kt.setElem(i + 1, oIndex, aktElem);
-				kt.setElem(i, oIndex, 0);
-			}
-		}
-		
-		levettInc();
-		
-		tablanDec();
-
-		paintKitolasTable();
-		
-		incKor();
-		
-		popupWinnerCheck();
-		
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 6; j++) {
-				System.out.print(kt.getElem(i, j));
-			}
-			System.out.println();
-		}
-
-		System.out.println("Levett elem: " + aktLevett);
-	}
-
-	private void shiftLeft(int sIndex) {
-		for (int j = 0; j < 6; j++) {
-			int aktElem = kt.getElem(sIndex, j);
-			if (j == 0) {
-				aktLevett = aktElem;
-			} else {
-				kt.setElem(sIndex, j - 1, aktElem);
-				kt.setElem(sIndex, j, 0);
-			}
-		}
-		
-		levettInc();
-		
-		tablanDec();
-		
-		paintKitolasTable();
-
-		incKor();
-		
-		popupWinnerCheck();
-		
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 6; j++) {
-				System.out.print(kt.getElem(i, j));
-			}
-			System.out.println();
-		}
-
-		System.out.println("Levett elem: " + aktLevett);
-	}
-
-	private void shiftRight(int sIndex) {
-		for (int j = 5; j >= 0; j--) {
-			int aktElem = kt.getElem(sIndex, j);
-			if (j == 5) {
-				aktLevett = aktElem;
-			} else {
-				kt.setElem(sIndex, j + 1, aktElem);
-				kt.setElem(sIndex, j, 0);
-			}
-		}
-
-		levettInc();
-		
-		tablanDec();
-		
-		paintKitolasTable();
-		
-		incKor();
-		
-		popupWinnerCheck();
-		
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 6; j++) {
-				System.out.print(kt.getElem(i, j));
-			}
-			System.out.println();
-		}
-
-		System.out.println("Levett elem: " + aktLevett);
-	}
 
 	@FXML
 	private void shiftUpCol0() {
-		shiftUp(Integer.parseInt(top0Button.getId()));
+		kdc.shiftUpData(Integer.parseInt(top0Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftUpCol1() {
-		shiftUp(Integer.parseInt(top1Button.getId()));
+		kdc.shiftUpData(Integer.parseInt(top1Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftUpCol2() {
-		shiftUp(Integer.parseInt(top2Button.getId()));
+		kdc.shiftUpData(Integer.parseInt(top2Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftUpCol3() {
-		shiftUp(Integer.parseInt(top3Button.getId()));
+		kdc.shiftUpData(Integer.parseInt(top3Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftUpCol4() {
-		shiftUp(Integer.parseInt(top4Button.getId()));
+		kdc.shiftUpData(Integer.parseInt(top4Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftUpCol5() {
-		shiftUp(Integer.parseInt(top5Button.getId()));
+		kdc.shiftUpData(Integer.parseInt(top5Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 
 	@FXML
 	private void shiftDownCol0() {
-		shiftDown(Integer.parseInt(bot0Button.getId()));
+		kdc.shiftDownData(Integer.parseInt(bot0Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftDownCol1() {
-		shiftDown(Integer.parseInt(bot1Button.getId()));
+		kdc.shiftDownData(Integer.parseInt(bot1Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftDownCol2() {
-		shiftDown(Integer.parseInt(bot2Button.getId()));
+		kdc.shiftDownData(Integer.parseInt(bot2Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftDownCol3() {
-		shiftDown(Integer.parseInt(bot3Button.getId()));
+		kdc.shiftDownData(Integer.parseInt(bot3Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftDownCol4() {
-		shiftDown(Integer.parseInt(bot4Button.getId()));
+		kdc.shiftDownData(Integer.parseInt(bot4Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftDownCol5() {
-		shiftDown(Integer.parseInt(bot5Button.getId()));
+		kdc.shiftDownData(Integer.parseInt(bot5Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	
 	@FXML
 	private void shiftLeftRow0() {
-		shiftLeft(Integer.parseInt(left0Button.getId()));
+		kdc.shiftLeftData(Integer.parseInt(left0Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftLeftRow1() {
-		shiftLeft(Integer.parseInt(left1Button.getId()));
+		kdc.shiftLeftData(Integer.parseInt(left1Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftLeftRow2() {
-		shiftLeft(Integer.parseInt(left2Button.getId()));
+		kdc.shiftLeftData(Integer.parseInt(left2Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftLeftRow3() {
-		shiftLeft(Integer.parseInt(left3Button.getId()));
+		kdc.shiftLeftData(Integer.parseInt(left3Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftLeftRow4() {
-		shiftLeft(Integer.parseInt(left4Button.getId()));
+		kdc.shiftLeftData(Integer.parseInt(left4Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftLeftRow5() {
-		shiftLeft(Integer.parseInt(left5Button.getId()));
+		kdc.shiftLeftData(Integer.parseInt(left5Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	
 	@FXML
 	private void shiftRightRow0() {
-		shiftRight(Integer.parseInt(right0Button.getId()));
+		kdc.shiftRightData(Integer.parseInt(right0Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftRightRow1() {
-		shiftRight(Integer.parseInt(right1Button.getId()));
+		kdc.shiftRightData(Integer.parseInt(right1Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftRightRow2() {
-		shiftRight(Integer.parseInt(right2Button.getId()));
+		kdc.shiftRightData(Integer.parseInt(right2Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftRightRow3() {
-		shiftRight(Integer.parseInt(right3Button.getId()));
+		kdc.shiftRightData(Integer.parseInt(right3Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftRightRow4() {
-		shiftRight(Integer.parseInt(right4Button.getId()));
+		kdc.shiftRightData(Integer.parseInt(right4Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	@FXML
 	private void shiftRightRow5() {
-		shiftRight(Integer.parseInt(right5Button.getId()));
+		kdc.shiftRightData(Integer.parseInt(right5Button.getId()));
+		
+		levettInc();
+		tablanDec();
+		paintKitolasTable();
+		incKor();		
+		popupWinnerCheck();
 	}
 	
 	private void incKor() {
-		int lepes = Integer.parseInt(kt.getLepesSzam());
-		lepes++;
-		kt.setLepesSzam(Integer.toString(lepes));
-		if (lepes % 2 == 0) {
-			int korSzam = Integer.parseInt(kt.getKorSzam().split("/")[0]);
-			System.out.println(korSzam);
-			korSzam++;
-			System.out.println(korSzam);
-			kt.setKorSzam(korSzam + "/36");
-			korLabel.setText(korSzam + "/36");
+		kdc.incKor();
+		if (Integer.parseInt(kdc.getKt().getLepesSzam()) % 2 == 0) {
+			korLabel.setText(kdc.getKt().getKorSzam());
 		}
 	}
 	
@@ -749,15 +734,15 @@ public class KitolasController implements Initializable{
 	}
 
 	private void popupWinnerCheck() {
-		if (kt.getLevettB().equals("6")) {
+		if (kdc.getKt().getLevettB().equals("6")) {
 			popupWinner("Feher");
-		} else if (kt.getLevettW().equals("6")) {
+		} else if (kdc.getKt().getLevettW().equals("6")) {
 			popupWinner("Fekete");
-		} else if (kt.getKorSzam().equals("36/36")) {
-			if (kt.getLevettW().equals(kt.getLevettB())) {
+		} else if (kdc.getKt().getKorSzam().equals("36/36")) {
+			if (kdc.getKt().getLevettW().equals(kdc.getKt().getLevettB())) {
 				popupDraw();
 			} else {
-				if (Integer.parseInt(kt.getTablanW()) > Integer.parseInt(kt.getTablanB())) {
+				if (Integer.parseInt(kdc.getKt().getTablanW()) > Integer.parseInt(kdc.getKt().getTablanB())) {
 					popupWinner("Feher");
 				} else {
 					popupWinner("Fekete");
@@ -767,48 +752,17 @@ public class KitolasController implements Initializable{
 	}
 
 	private void clearTable() {
-		kt.setLepesSzam("0");
-		kt.setKorSzam("1/36");
+		kdc.clearTableData();
 		
-		kt.setKorSzam("1/36");
-		korLabel.setText(kt.getKorSzam());
-		kt.setTablanB("6");
-		tablanBLabel.setText(kt.getTablanB());
-		kt.setLevettB("0");
-		levettBLabel.setText(kt.getLevettB());
-		kt.setTablanW("6");
-		tablanWLabel.setText(kt.getTablanW());
-		kt.setLevettW("0");
-		levettWLabel.setText(kt.getLevettW());
-		
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 6; j++) {
-				kt.setElem(i, j, 0);
-			}
-		}
+		korLabel.setText(kdc.getKt().getKorSzam());
+		tablanBLabel.setText(kdc.getKt().getTablanB());
+		levettBLabel.setText(kdc.getKt().getLevettB());
+		tablanWLabel.setText(kdc.getKt().getTablanW());
+		levettWLabel.setText(kdc.getKt().getLevettW());
 		
 		paintKitolasTable();
 	}
 	
-	@FXML
-	private void mentes() throws TransformerException, ParserConfigurationException {
-		Alert alert = new Alert(AlertType.WARNING);
-		alert.setTitle("Mentés");
-		alert.setHeaderText("Biztosan mented a játékot?");
-
-		ButtonType buttonTypeIgen = new ButtonType("Igen");
-		ButtonType buttonTypeNem = new ButtonType("Nem");
-
-		alert.getButtonTypes().setAll(buttonTypeIgen, buttonTypeNem);
-
-		Optional<ButtonType> result = alert.showAndWait();
-		if (result.get() == buttonTypeIgen) {
-			SavedGame.XMLWrite();
-		} else {
-			;
-		}
-	}
-		
 	@FXML
 	private void szabalyokKitolas() {
 		Alert alert = new Alert(AlertType.INFORMATION);
