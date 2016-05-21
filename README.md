@@ -1,2 +1,2 @@
 # kitolas_project
-tablajatek
+A kitolas nevu ketszemelyes tablajatek megvalositasa.
