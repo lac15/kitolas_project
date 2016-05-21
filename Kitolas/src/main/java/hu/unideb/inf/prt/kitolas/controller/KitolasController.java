@@ -1,13 +1,19 @@
-package hu.unideb.inf.prt.kitolas.view;
+package hu.unideb.inf.prt.kitolas.controller;
 
 import hu.unideb.inf.prt.kitolas.model.KitolasData;
 
+import java.net.URL;
 import java.util.Optional;
 import java.util.Random;
+import java.util.ResourceBundle;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
 import hu.unideb.inf.prt.kitolas.Main;
-import hu.unideb.inf.prt.kitolas.XMLHandler;
+import hu.unideb.inf.prt.kitolas.SavedGame;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -15,12 +21,11 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Circle;
 
-public class KitolasController {
-
+public class KitolasController implements Initializable{
 	Main main;
-
-	private int lepes = 0;
-	private int korSzam = 1;
+	
+	public static KitolasData kt = new KitolasData ("6", "0", "6", "0", "1/36", "0");
+	
 	private int aktLevett = 0;
 
 	@FXML
@@ -256,7 +261,12 @@ public class KitolasController {
 
 	public void setMain(Main main) {
 		this.main = main;
-		showKitolasData(main.getKitolData());
+		showKitolasData(kt);
+	}
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
 	}
 	
 	private void setCircleOpacity(int aktElem, Circle aktCircleW, Circle aktCircleB) {
@@ -288,7 +298,7 @@ public class KitolasController {
 		}
 	}
 
-	private void startKitolasGame(KitolasData kitolasData) {
+	private void startKitolasGame() {
 		Random rand = new Random();
 		int row = 0;
 		int col = 0;
@@ -301,8 +311,8 @@ public class KitolasController {
 			row = rand.nextInt(6);
 			col = rand.nextInt(6);
 
-			if (kitolasData.getElem(row, col) == 0) {
-				kitolasData.setElem(row, col, 1);
+			if (kt.getElem(row, col) == 0) {
+				kt.setElem(row, col, 1);
 				feher++;
 			}
 		}
@@ -310,46 +320,24 @@ public class KitolasController {
 			row = rand.nextInt(6);
 			col = rand.nextInt(6);
 
-			if (kitolasData.getElem(row, col) == 0) {
-				kitolasData.setElem(row, col, 2);
+			if (kt.getElem(row, col) == 0) {
+				kt.setElem(row, col, 2);
 				fekete++;
 			}
 		}
 
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 6; j++) {
-				System.out.print(kitolasData.getElem(i, j));
+				System.out.print(kt.getElem(i, j));
 			}
 			System.out.println();
 		}
-	}
-
-	private void startKitolasGameSaved(KitolasData kitol, KitolasData kitolasData) {
-		kitol.setKorSzam(kitolasData.getKorSzam() + "/36");
-		kitol.setLepesSzam(kitolasData.getLepesSzam());
-		kitol.setTablanW(kitolasData.getTablanW());
-		kitol.setLevettW(kitolasData.getLevettW());
-		kitol.setTablanB(kitolasData.getTablanB());
-		kitol.setLevettB(kitolasData.getLevettB());
-		
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 6; j++) {
-				kitol.setElem(i, j, kitolasData.getElem(i, j));
-			}
-		}
-		
-		/*for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 6; j++) {
-				System.out.print(kitol.getElem(i, j));
-			}
-			System.out.println();
-		}*/
 	}
 	
-	private void paintKitolasTable(KitolasData kitolasData) {
+	private void paintKitolasTable() {
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 6; j++) {
-				int aktElem = kitolasData.getElem(i, j);
+				int aktElem = kt.getElem(i, j);
 				if ((i == 0) && (j == 0)) {
 					setCircleOpacity(aktElem, circle00W, circle00B);
 				} else if((i == 0) && (j == 1)) {
@@ -428,6 +416,17 @@ public class KitolasController {
 	}
 	
 	@FXML
+	public void mentettBetolt() {
+		SavedGame.XMLRead();
+		paintKitolasTable();
+		korLabel.setText(kt.getKorSzam());
+		tablanBLabel.setText(kt.getTablanB());
+		levettBLabel.setText(kt.getLevettB());
+		tablanWLabel.setText(kt.getTablanW());
+		levettWLabel.setText(kt.getLevettW());
+	}
+	
+	@FXML
 	private void startGame() {
 		Alert alert = new Alert(AlertType.WARNING);
 		alert.setTitle("Új játék");
@@ -440,49 +439,47 @@ public class KitolasController {
 
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == buttonTypeIgen) {
-			startKitolasGame(main.getKitolData());
-			paintKitolasTable(main.getKitolData());
+			startKitolasGame();
+			paintKitolasTable();
 		} else {
 			;
 		}
 	}
 	
 	private void levettInc() {
-		KitolasData kitolasData = main.getKitolData();
 		int sz = 0;
 		if (aktLevett == 1) {
-			sz = Integer.parseInt(kitolasData.getLevettW());
-			kitolasData.setLevettW(Integer.toString(++sz));
-			levettWLabel.setText(kitolasData.getLevettW());
+			sz = Integer.parseInt(kt.getLevettW());
+			kt.setLevettW(Integer.toString(++sz));
+			levettWLabel.setText(kt.getLevettW());
 		} else if (aktLevett == 2) {
-			sz = Integer.parseInt(kitolasData.getLevettB());
-			kitolasData.setLevettB(Integer.toString(++sz));
-			levettBLabel.setText(kitolasData.getLevettB());
+			sz = Integer.parseInt(kt.getLevettB());
+			kt.setLevettB(Integer.toString(++sz));
+			levettBLabel.setText(kt.getLevettB());
 		}
 	}
 	
 	private void tablanDec() {
-		KitolasData kitolasData = main.getKitolData();
 		int sz = 0;
 		if (aktLevett == 1) {
-			sz = Integer.parseInt(kitolasData.getTablanW());
-			kitolasData.setTablanW(Integer.toString(--sz));
-			tablanWLabel.setText(kitolasData.getTablanW());
+			sz = Integer.parseInt(kt.getTablanW());
+			kt.setTablanW(Integer.toString(--sz));
+			tablanWLabel.setText(kt.getTablanW());
 		} else if (aktLevett == 2) {
-			sz = Integer.parseInt(kitolasData.getTablanB());
-			kitolasData.setTablanB(Integer.toString(--sz));
-			tablanBLabel.setText(kitolasData.getTablanB());
+			sz = Integer.parseInt(kt.getTablanB());
+			kt.setTablanB(Integer.toString(--sz));
+			tablanBLabel.setText(kt.getTablanB());
 		}
 	}
 	
-	private void shiftUp(KitolasData kitolasData, int oIndex) {
+	private void shiftUp(int oIndex) {
 		for (int i = 0; i < 6; i++) {
-			int aktElem = kitolasData.getElem(i, oIndex);
+			int aktElem = kt.getElem(i, oIndex);
 			if (i == 0) {
 				aktLevett = aktElem;
 			} else {
-				kitolasData.setElem(i - 1, oIndex, aktElem);
-				kitolasData.setElem(i, oIndex, 0);
+				kt.setElem(i - 1, oIndex, aktElem);
+				kt.setElem(i, oIndex, 0);
 			}
 		}
 		
@@ -490,7 +487,7 @@ public class KitolasController {
 		
 		tablanDec();
 		
-		paintKitolasTable(kitolasData);
+		paintKitolasTable();
 
 		incKor();
 		
@@ -498,7 +495,7 @@ public class KitolasController {
 		
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 6; j++) {
-				System.out.print(kitolasData.getElem(i, j));
+				System.out.print(kt.getElem(i, j));
 			}
 			System.out.println();
 		}
@@ -506,14 +503,14 @@ public class KitolasController {
 		System.out.println("Levett elem: " + aktLevett);
 	}
 
-	private void shiftDown(KitolasData kitolasData, int oIndex) {
+	private void shiftDown(int oIndex) {
 		for (int i = 5; i >= 0; i--) {
-			int aktElem = kitolasData.getElem(i, oIndex);
+			int aktElem = kt.getElem(i, oIndex);
 			if (i == 5) {
 				aktLevett = aktElem;
 			} else {
-				kitolasData.setElem(i + 1, oIndex, aktElem);
-				kitolasData.setElem(i, oIndex, 0);
+				kt.setElem(i + 1, oIndex, aktElem);
+				kt.setElem(i, oIndex, 0);
 			}
 		}
 		
@@ -521,7 +518,7 @@ public class KitolasController {
 		
 		tablanDec();
 
-		paintKitolasTable(kitolasData);
+		paintKitolasTable();
 		
 		incKor();
 		
@@ -529,7 +526,7 @@ public class KitolasController {
 		
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 6; j++) {
-				System.out.print(kitolasData.getElem(i, j));
+				System.out.print(kt.getElem(i, j));
 			}
 			System.out.println();
 		}
@@ -537,14 +534,14 @@ public class KitolasController {
 		System.out.println("Levett elem: " + aktLevett);
 	}
 
-	private void shiftLeft(KitolasData kitolasData, int sIndex) {
+	private void shiftLeft(int sIndex) {
 		for (int j = 0; j < 6; j++) {
-			int aktElem = kitolasData.getElem(sIndex, j);
+			int aktElem = kt.getElem(sIndex, j);
 			if (j == 0) {
 				aktLevett = aktElem;
 			} else {
-				kitolasData.setElem(sIndex, j - 1, aktElem);
-				kitolasData.setElem(sIndex, j, 0);
+				kt.setElem(sIndex, j - 1, aktElem);
+				kt.setElem(sIndex, j, 0);
 			}
 		}
 		
@@ -552,7 +549,7 @@ public class KitolasController {
 		
 		tablanDec();
 		
-		paintKitolasTable(kitolasData);
+		paintKitolasTable();
 
 		incKor();
 		
@@ -560,7 +557,7 @@ public class KitolasController {
 		
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 6; j++) {
-				System.out.print(kitolasData.getElem(i, j));
+				System.out.print(kt.getElem(i, j));
 			}
 			System.out.println();
 		}
@@ -568,14 +565,14 @@ public class KitolasController {
 		System.out.println("Levett elem: " + aktLevett);
 	}
 
-	private void shiftRight(KitolasData kitolasData, int sIndex) {
+	private void shiftRight(int sIndex) {
 		for (int j = 5; j >= 0; j--) {
-			int aktElem = kitolasData.getElem(sIndex, j);
+			int aktElem = kt.getElem(sIndex, j);
 			if (j == 5) {
 				aktLevett = aktElem;
 			} else {
-				kitolasData.setElem(sIndex, j + 1, aktElem);
-				kitolasData.setElem(sIndex, j, 0);
+				kt.setElem(sIndex, j + 1, aktElem);
+				kt.setElem(sIndex, j, 0);
 			}
 		}
 
@@ -583,7 +580,7 @@ public class KitolasController {
 		
 		tablanDec();
 		
-		paintKitolasTable(kitolasData);
+		paintKitolasTable();
 		
 		incKor();
 		
@@ -591,7 +588,7 @@ public class KitolasController {
 		
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 6; j++) {
-				System.out.print(kitolasData.getElem(i, j));
+				System.out.print(kt.getElem(i, j));
 			}
 			System.out.println();
 		}
@@ -601,109 +598,114 @@ public class KitolasController {
 
 	@FXML
 	private void shiftUpCol0() {
-		shiftUp(main.getKitolData(), Integer.parseInt(top0Button.getId()));
+		shiftUp(Integer.parseInt(top0Button.getId()));
 	}
 	@FXML
 	private void shiftUpCol1() {
-		shiftUp(main.getKitolData(), Integer.parseInt(top1Button.getId()));
+		shiftUp(Integer.parseInt(top1Button.getId()));
 	}
 	@FXML
 	private void shiftUpCol2() {
-		shiftUp(main.getKitolData(), Integer.parseInt(top2Button.getId()));
+		shiftUp(Integer.parseInt(top2Button.getId()));
 	}
 	@FXML
 	private void shiftUpCol3() {
-		shiftUp(main.getKitolData(), Integer.parseInt(top3Button.getId()));
+		shiftUp(Integer.parseInt(top3Button.getId()));
 	}
 	@FXML
 	private void shiftUpCol4() {
-		shiftUp(main.getKitolData(), Integer.parseInt(top4Button.getId()));
+		shiftUp(Integer.parseInt(top4Button.getId()));
 	}
 	@FXML
 	private void shiftUpCol5() {
-		shiftUp(main.getKitolData(), Integer.parseInt(top5Button.getId()));
+		shiftUp(Integer.parseInt(top5Button.getId()));
 	}
 
 	@FXML
 	private void shiftDownCol0() {
-		shiftDown(main.getKitolData(), Integer.parseInt(bot0Button.getId()));
+		shiftDown(Integer.parseInt(bot0Button.getId()));
 	}
 	@FXML
 	private void shiftDownCol1() {
-		shiftDown(main.getKitolData(), Integer.parseInt(bot1Button.getId()));
+		shiftDown(Integer.parseInt(bot1Button.getId()));
 	}
 	@FXML
 	private void shiftDownCol2() {
-		shiftDown(main.getKitolData(), Integer.parseInt(bot2Button.getId()));
+		shiftDown(Integer.parseInt(bot2Button.getId()));
 	}
 	@FXML
 	private void shiftDownCol3() {
-		shiftDown(main.getKitolData(), Integer.parseInt(bot3Button.getId()));
+		shiftDown(Integer.parseInt(bot3Button.getId()));
 	}
 	@FXML
 	private void shiftDownCol4() {
-		shiftDown(main.getKitolData(), Integer.parseInt(bot4Button.getId()));
+		shiftDown(Integer.parseInt(bot4Button.getId()));
 	}
 	@FXML
 	private void shiftDownCol5() {
-		shiftDown(main.getKitolData(), Integer.parseInt(bot5Button.getId()));
+		shiftDown(Integer.parseInt(bot5Button.getId()));
 	}
 	
 	@FXML
 	private void shiftLeftRow0() {
-		shiftLeft(main.getKitolData(), Integer.parseInt(left0Button.getId()));
+		shiftLeft(Integer.parseInt(left0Button.getId()));
 	}
 	@FXML
 	private void shiftLeftRow1() {
-		shiftLeft(main.getKitolData(), Integer.parseInt(left1Button.getId()));
+		shiftLeft(Integer.parseInt(left1Button.getId()));
 	}
 	@FXML
 	private void shiftLeftRow2() {
-		shiftLeft(main.getKitolData(), Integer.parseInt(left2Button.getId()));
+		shiftLeft(Integer.parseInt(left2Button.getId()));
 	}
 	@FXML
 	private void shiftLeftRow3() {
-		shiftLeft(main.getKitolData(), Integer.parseInt(left3Button.getId()));
+		shiftLeft(Integer.parseInt(left3Button.getId()));
 	}
 	@FXML
 	private void shiftLeftRow4() {
-		shiftLeft(main.getKitolData(), Integer.parseInt(left4Button.getId()));
+		shiftLeft(Integer.parseInt(left4Button.getId()));
 	}
 	@FXML
 	private void shiftLeftRow5() {
-		shiftLeft(main.getKitolData(), Integer.parseInt(left5Button.getId()));
+		shiftLeft(Integer.parseInt(left5Button.getId()));
 	}
 	
 	@FXML
 	private void shiftRightRow0() {
-		shiftRight(main.getKitolData(), Integer.parseInt(right0Button.getId()));
+		shiftRight(Integer.parseInt(right0Button.getId()));
 	}
 	@FXML
 	private void shiftRightRow1() {
-		shiftRight(main.getKitolData(), Integer.parseInt(right1Button.getId()));
+		shiftRight(Integer.parseInt(right1Button.getId()));
 	}
 	@FXML
 	private void shiftRightRow2() {
-		shiftRight(main.getKitolData(), Integer.parseInt(right2Button.getId()));
+		shiftRight(Integer.parseInt(right2Button.getId()));
 	}
 	@FXML
 	private void shiftRightRow3() {
-		shiftRight(main.getKitolData(), Integer.parseInt(right3Button.getId()));
+		shiftRight(Integer.parseInt(right3Button.getId()));
 	}
 	@FXML
 	private void shiftRightRow4() {
-		shiftRight(main.getKitolData(), Integer.parseInt(right4Button.getId()));
+		shiftRight(Integer.parseInt(right4Button.getId()));
 	}
 	@FXML
 	private void shiftRightRow5() {
-		shiftRight(main.getKitolData(), Integer.parseInt(right5Button.getId()));
+		shiftRight(Integer.parseInt(right5Button.getId()));
 	}
 	
 	private void incKor() {
+		int lepes = Integer.parseInt(kt.getLepesSzam());
 		lepes++;
+		kt.setLepesSzam(Integer.toString(lepes));
 		if (lepes % 2 == 0) {
+			int korSzam = Integer.parseInt(kt.getKorSzam().split("/")[0]);
+			System.out.println(korSzam);
 			korSzam++;
-			main.getKitolData().setKorSzam(korSzam + "/36");
+			System.out.println(korSzam);
+			kt.setKorSzam(korSzam + "/36");
 			korLabel.setText(korSzam + "/36");
 		}
 	}
@@ -747,16 +749,15 @@ public class KitolasController {
 	}
 
 	private void popupWinnerCheck() {
-		KitolasData kitolData = main.getKitolData();
-		if (kitolData.getLevettB().equals("6")) {
+		if (kt.getLevettB().equals("6")) {
 			popupWinner("Feher");
-		} else if (kitolData.getLevettW().equals("6")) {
+		} else if (kt.getLevettW().equals("6")) {
 			popupWinner("Fekete");
-		} else if (kitolData.getKorSzam().equals("36/36")) {
-			if (kitolData.getLevettW().equals(kitolData.getLevettB())) {
+		} else if (kt.getKorSzam().equals("36/36")) {
+			if (kt.getLevettW().equals(kt.getLevettB())) {
 				popupDraw();
 			} else {
-				if (Integer.parseInt(kitolData.getTablanW()) > Integer.parseInt(kitolData.getTablanB())) {
+				if (Integer.parseInt(kt.getTablanW()) > Integer.parseInt(kt.getTablanB())) {
 					popupWinner("Feher");
 				} else {
 					popupWinner("Fekete");
@@ -766,35 +767,34 @@ public class KitolasController {
 	}
 
 	private void clearTable() {
-		lepes = 0;
-		korSzam = 1;
+		kt.setLepesSzam("0");
+		kt.setKorSzam("1/36");
 		
-		KitolasData kitolasData = main.getKitolData();
-		kitolasData.setKorSzam("1/36");
-		korLabel.setText(kitolasData.getKorSzam());
-		kitolasData.setTablanB("6");
-		tablanBLabel.setText(kitolasData.getTablanB());
-		kitolasData.setLevettB("0");
-		levettBLabel.setText(kitolasData.getLevettB());
-		kitolasData.setTablanW("6");
-		tablanWLabel.setText(kitolasData.getTablanW());
-		kitolasData.setLevettW("0");
-		levettWLabel.setText(kitolasData.getLevettW());
+		kt.setKorSzam("1/36");
+		korLabel.setText(kt.getKorSzam());
+		kt.setTablanB("6");
+		tablanBLabel.setText(kt.getTablanB());
+		kt.setLevettB("0");
+		levettBLabel.setText(kt.getLevettB());
+		kt.setTablanW("6");
+		tablanWLabel.setText(kt.getTablanW());
+		kt.setLevettW("0");
+		levettWLabel.setText(kt.getLevettW());
 		
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 6; j++) {
-				kitolasData.setElem(i, j, 0);
+				kt.setElem(i, j, 0);
 			}
 		}
 		
-		paintKitolasTable(kitolasData);
+		paintKitolasTable();
 	}
 	
 	@FXML
-	private void mentettBetolt() {
+	private void mentes() throws TransformerException, ParserConfigurationException {
 		Alert alert = new Alert(AlertType.WARNING);
-		alert.setTitle("Mentett játék betöltése");
-		alert.setHeaderText("Biztosan betöltöd a mentett játékot?");
+		alert.setTitle("Mentés");
+		alert.setHeaderText("Biztosan mented a játékot?");
 
 		ButtonType buttonTypeIgen = new ButtonType("Igen");
 		ButtonType buttonTypeNem = new ButtonType("Nem");
@@ -803,13 +803,10 @@ public class KitolasController {
 
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == buttonTypeIgen) {
-			startKitolasGameSaved(main.getKitolData(), XMLHandler.XMLRead());
-			startKitolasGame(main.getKitolData());
-			paintKitolasTable(main.getKitolData());
+			SavedGame.XMLWrite();
 		} else {
 			;
 		}
-		
 	}
 		
 	@FXML
@@ -835,5 +832,5 @@ public class KitolasController {
 	private void exitKitolas() {
 		System.exit(0);
 	}
-
+	
 }

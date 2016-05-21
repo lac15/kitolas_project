@@ -2,281 +2,307 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.prt.kitolas.view.KitolasController">
-   <children>
-      <SplitPane dividerPositions="0.7676767676767676" layoutX="-1.0" layoutY="-5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <items>
-            <AnchorPane>
-               <children>
-                  <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="95.0" layoutY="39.0" prefHeight="420.0" prefWidth="420.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
+<BorderPane xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.prt.kitolas.controller.KitolasController">
+   <center>
+      <AnchorPane prefHeight="500.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <SplitPane dividerPositions="0.7706766917293233" layoutX="-1.0" layoutY="-5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <items>
+                  <AnchorPane>
                      <children>
-                        <Circle fx:id="circle00W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle01W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle02W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle03W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle04W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle05W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle10W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle11W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle12W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle13W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle14W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle15W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle20W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle21W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle22W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle23W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle24W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle25W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle30W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle31W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle32W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle33W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle34W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle35W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle40W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle41W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle42W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle43W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle44W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle45W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle50W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle51W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle52W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle53W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle54W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle55W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle00B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle01B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle02B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle03B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle04B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle05B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle10B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle11B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle12B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle13B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle14B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle15B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle20B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle21B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle22B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle23B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle24B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle25B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle30B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle31B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle32B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle33B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle34B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle35B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle40B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle41B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle42B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle43B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle44B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle45B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle50B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle51B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle52B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle53B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle54B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                        <Circle fx:id="circle55B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                        <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="95.0" layoutY="39.0" prefHeight="420.0" prefWidth="420.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Circle fx:id="circle00W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle01W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle02W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle03W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle04W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle05W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle10W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle11W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle12W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle13W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle14W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle15W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle20W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle21W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle22W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle23W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle24W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle25W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle30W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle31W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle32W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle33W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle34W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle35W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle40W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle41W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle42W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle43W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle44W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle45W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle50W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle51W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle52W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle53W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle54W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle55W" fill="WHITE" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle00B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle01B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle02B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle03B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle04B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle05B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle10B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle11B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle12B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle13B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle14B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle15B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle20B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle21B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle22B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle23B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle24B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle25B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle30B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle31B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle32B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle33B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle34B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle35B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle40B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle41B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle42B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle43B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle44B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle45B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle50B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle51B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle52B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle53B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle54B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                              <Circle fx:id="circle55B" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                           </children>
+                        </GridPane>
+                        <Button id="0" fx:id="left0Button" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#shiftLeftRow0" prefHeight="70.0" prefWidth="25.0" text="&lt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="1" fx:id="left1Button" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="109.0" mnemonicParsing="false" onMouseClicked="#shiftLeftRow1" prefHeight="70.0" prefWidth="25.0" text="&lt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="2" fx:id="left2Button" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#shiftLeftRow2" prefHeight="70.0" prefWidth="25.0" text="&lt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="3" fx:id="left3Button" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#shiftLeftRow3" prefHeight="70.0" prefWidth="25.0" text="&lt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="4" fx:id="left4Button" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#shiftLeftRow4" prefHeight="70.0" prefWidth="25.0" text="&lt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="5" fx:id="left5Button" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="389.0" mnemonicParsing="false" onMouseClicked="#shiftLeftRow5" prefHeight="70.0" prefWidth="25.0" text="&lt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="0" fx:id="right0Button" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#shiftRightRow0" prefHeight="70.0" prefWidth="25.0" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="1" fx:id="right1Button" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="109.0" mnemonicParsing="false" onMouseClicked="#shiftRightRow1" prefHeight="70.0" prefWidth="25.0" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="2" fx:id="right2Button" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#shiftRightRow2" prefHeight="70.0" prefWidth="25.0" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="3" fx:id="right3Button" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#shiftRightRow3" prefHeight="70.0" prefWidth="25.0" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="4" fx:id="right4Button" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#shiftRightRow4" prefHeight="70.0" prefWidth="25.0" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="5" fx:id="right5Button" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="389.0" mnemonicParsing="false" onMouseClicked="#shiftRightRow5" prefHeight="70.0" prefWidth="25.0" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="0" fx:id="bot0Button" alignment="CENTER" contentDisplay="CENTER" layoutX="117.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#shiftDownCol0" prefHeight="70.0" prefWidth="25.0" rotate="90.0" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="2" fx:id="bot2Button" alignment="CENTER" contentDisplay="CENTER" layoutX="257.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#shiftDownCol2" prefHeight="70.0" prefWidth="25.0" rotate="90.0" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="1" fx:id="bot1Button" alignment="CENTER" contentDisplay="CENTER" layoutX="187.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#shiftDownCol1" prefHeight="70.0" prefWidth="25.0" rotate="90.0" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="3" fx:id="bot3Button" alignment="CENTER" contentDisplay="CENTER" layoutX="328.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#shiftDownCol3" prefHeight="70.0" prefWidth="25.0" rotate="90.0" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="4" fx:id="bot4Button" alignment="CENTER" contentDisplay="CENTER" layoutX="398.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#shiftDownCol4" prefHeight="70.0" prefWidth="25.0" rotate="90.0" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="5" fx:id="bot5Button" alignment="CENTER" contentDisplay="CENTER" layoutX="468.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#shiftDownCol5" prefHeight="70.0" prefWidth="25.0" rotate="90.0" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="0" fx:id="top0Button" alignment="CENTER" contentDisplay="CENTER" layoutX="117.0" layoutY="-9.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol0" prefHeight="70.0" prefWidth="25.0" rotate="-90.0" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="1" fx:id="top1Button" alignment="CENTER" contentDisplay="CENTER" layoutX="187.0" layoutY="-9.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol1" prefHeight="70.0" prefWidth="25.0" rotate="-90.0" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="2" fx:id="top2Button" alignment="CENTER" contentDisplay="CENTER" layoutX="257.0" layoutY="-9.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol2" prefHeight="70.0" prefWidth="25.0" rotate="-90.0" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="3" fx:id="top3Button" alignment="CENTER" contentDisplay="CENTER" layoutX="328.0" layoutY="-9.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol3" prefHeight="70.0" prefWidth="25.0" rotate="-90.0" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="4" fx:id="top4Button" alignment="CENTER" contentDisplay="CENTER" layoutX="398.0" layoutY="-9.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol4" prefHeight="70.0" prefWidth="25.0" rotate="-90.0" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="5" fx:id="top5Button" alignment="CENTER" contentDisplay="CENTER" layoutX="468.0" layoutY="-9.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol5" prefHeight="70.0" prefWidth="25.0" rotate="-90.0" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
                      </children>
-                  </GridPane>
-                  <Button id="0" fx:id="left0Button" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#shiftLeftRow0" prefHeight="70.0" prefWidth="25.0" text="&lt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="1" fx:id="left1Button" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="109.0" mnemonicParsing="false" onMouseClicked="#shiftLeftRow1" prefHeight="70.0" prefWidth="25.0" text="&lt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="2" fx:id="left2Button" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#shiftLeftRow2" prefHeight="70.0" prefWidth="25.0" text="&lt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="3" fx:id="left3Button" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#shiftLeftRow3" prefHeight="70.0" prefWidth="25.0" text="&lt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="4" fx:id="left4Button" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#shiftLeftRow4" prefHeight="70.0" prefWidth="25.0" text="&lt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="5" fx:id="left5Button" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="389.0" mnemonicParsing="false" onMouseClicked="#shiftLeftRow5" prefHeight="70.0" prefWidth="25.0" text="&lt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="0" fx:id="right0Button" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#shiftRightRow0" prefHeight="70.0" prefWidth="25.0" text="&gt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="1" fx:id="right1Button" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="109.0" mnemonicParsing="false" onMouseClicked="#shiftRightRow1" prefHeight="70.0" prefWidth="25.0" text="&gt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="2" fx:id="right2Button" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#shiftRightRow2" prefHeight="70.0" prefWidth="25.0" text="&gt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="3" fx:id="right3Button" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#shiftRightRow3" prefHeight="70.0" prefWidth="25.0" text="&gt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="4" fx:id="right4Button" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#shiftRightRow4" prefHeight="70.0" prefWidth="25.0" text="&gt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="5" fx:id="right5Button" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="389.0" mnemonicParsing="false" onMouseClicked="#shiftRightRow5" prefHeight="70.0" prefWidth="25.0" text="&gt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="0" fx:id="bot0Button" alignment="CENTER" contentDisplay="CENTER" layoutX="117.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#shiftDownCol0" prefHeight="70.0" prefWidth="25.0" rotate="90.0" text="&gt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="2" fx:id="bot2Button" alignment="CENTER" contentDisplay="CENTER" layoutX="257.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#shiftDownCol2" prefHeight="70.0" prefWidth="25.0" rotate="90.0" text="&gt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="1" fx:id="bot1Button" alignment="CENTER" contentDisplay="CENTER" layoutX="187.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#shiftDownCol1" prefHeight="70.0" prefWidth="25.0" rotate="90.0" text="&gt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="3" fx:id="bot3Button" alignment="CENTER" contentDisplay="CENTER" layoutX="328.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#shiftDownCol3" prefHeight="70.0" prefWidth="25.0" rotate="90.0" text="&gt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="4" fx:id="bot4Button" alignment="CENTER" contentDisplay="CENTER" layoutX="398.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#shiftDownCol4" prefHeight="70.0" prefWidth="25.0" rotate="90.0" text="&gt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="5" fx:id="bot5Button" alignment="CENTER" contentDisplay="CENTER" layoutX="468.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#shiftDownCol5" prefHeight="70.0" prefWidth="25.0" rotate="90.0" text="&gt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="0" fx:id="top0Button" alignment="CENTER" contentDisplay="CENTER" layoutX="117.0" layoutY="-9.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol0" prefHeight="70.0" prefWidth="25.0" rotate="-90.0" text="&gt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="1" fx:id="top1Button" alignment="CENTER" contentDisplay="CENTER" layoutX="187.0" layoutY="-9.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol1" prefHeight="70.0" prefWidth="25.0" rotate="-90.0" text="&gt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="2" fx:id="top2Button" alignment="CENTER" contentDisplay="CENTER" layoutX="257.0" layoutY="-9.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol2" prefHeight="70.0" prefWidth="25.0" rotate="-90.0" text="&gt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="3" fx:id="top3Button" alignment="CENTER" contentDisplay="CENTER" layoutX="328.0" layoutY="-9.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol3" prefHeight="70.0" prefWidth="25.0" rotate="-90.0" text="&gt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="4" fx:id="top4Button" alignment="CENTER" contentDisplay="CENTER" layoutX="398.0" layoutY="-9.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol4" prefHeight="70.0" prefWidth="25.0" rotate="-90.0" text="&gt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button id="5" fx:id="top5Button" alignment="CENTER" contentDisplay="CENTER" layoutX="468.0" layoutY="-9.0" mnemonicParsing="false" onMouseClicked="#shiftUpCol5" prefHeight="70.0" prefWidth="25.0" rotate="-90.0" text="&gt;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-               </children>
-            </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
-               <children>
-                  <Separator layoutY="15.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0" />
-                  <Label alignment="CENTER" layoutY="14.0" prefHeight="30.0" prefWidth="145.0" text="Fehér" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Label>
-                  <Separator layoutX="1.0" layoutY="45.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0" />
-                  <Label layoutX="14.0" layoutY="53.0" text="Táblán:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="56.0" />
-                  <Label layoutX="14.0" layoutY="79.0" text="Levett:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="76.0" />
-                  <Label fx:id="tablanWLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="73.0" layoutY="53.0" text="Label" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="56.0" />
-                  <Label fx:id="levettWLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="73.0" layoutY="79.0" text="Label" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="76.0" />
-                  <Separator layoutY="99.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0" />
-                  <Separator layoutX="1.0" layoutY="184.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="185.0" />
-                  <Label alignment="CENTER" layoutX="1.0" layoutY="185.0" prefHeight="30.0" prefWidth="145.0" text="Kör" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="185.0">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="korLabel" alignment="CENTER" layoutX="1.0" layoutY="224.0" prefHeight="30.0" prefWidth="145.0" text="Label" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                     <font>
-                        <Font name="System Italic" size="20.0" />
-                     </font>
-                  </Label>
-                  <Separator layoutY="252.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.bottomAnchor="193.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                  <Separator layoutY="157.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                  <Label alignment="CENTER" layoutY="280.0" prefHeight="30.0" prefWidth="145.0" text="Fekete" AnchorPane.bottomAnchor="63.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Label>
-                  <Separator layoutY="187.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                  <Label layoutX="14.0" layoutY="202.0" text="Táblán:" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="30.0" />
-                  <Label layoutX="14.0" layoutY="228.0" text="Levett:" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="30.0" />
-                  <Label fx:id="tablanBLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="73.0" layoutY="202.0" text="Label" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="30.0" />
-                  <Label fx:id="levettBLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="73.0" layoutY="228.0" text="Label" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="30.0" />
-                  <Separator layoutX="3.0" layoutY="358.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                  <Button alignment="CENTER" layoutX="42.0" layoutY="125.0" mnemonicParsing="false" onAction="#startGame" prefHeight="37.0" prefWidth="77.0" text="Start" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="41.0">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Button>
-               </children>
-            </AnchorPane>
-         </items>
-      </SplitPane>
-   </children>
-</AnchorPane>
+                  </AnchorPane>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
+                     <children>
+                        <Separator layoutY="15.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0" />
+                        <Label alignment="CENTER" layoutY="14.0" prefHeight="30.0" prefWidth="145.0" text="Fehér" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="1.0" layoutY="45.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0" />
+                        <Label layoutX="14.0" layoutY="53.0" text="Táblán:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="56.0" />
+                        <Label layoutX="14.0" layoutY="79.0" text="Levett:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="76.0" />
+                        <Label fx:id="tablanWLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="73.0" layoutY="53.0" text="Label" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="56.0" />
+                        <Label fx:id="levettWLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="73.0" layoutY="79.0" text="Label" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="76.0" />
+                        <Separator layoutY="99.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0" />
+                        <Separator layoutX="1.0" layoutY="184.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="185.0" />
+                        <Label alignment="CENTER" layoutX="1.0" layoutY="185.0" prefHeight="30.0" prefWidth="145.0" text="Kör" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="185.0">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="korLabel" alignment="CENTER" layoutX="1.0" layoutY="224.0" prefHeight="30.0" prefWidth="145.0" text="Label" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font name="System Italic" size="20.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutY="252.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.bottomAnchor="193.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <Separator layoutY="157.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <Label alignment="CENTER" layoutY="280.0" prefHeight="30.0" prefWidth="145.0" text="Fekete" AnchorPane.bottomAnchor="63.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutY="187.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <Label layoutX="14.0" layoutY="202.0" text="Táblán:" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="30.0" />
+                        <Label layoutX="14.0" layoutY="228.0" text="Levett:" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="30.0" />
+                        <Label fx:id="tablanBLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="73.0" layoutY="202.0" text="Label" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="30.0" />
+                        <Label fx:id="levettBLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="73.0" layoutY="228.0" text="Label" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="30.0" />
+                        <Separator layoutX="3.0" layoutY="358.0" prefHeight="1.0" prefWidth="145.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <Button alignment="CENTER" layoutX="42.0" layoutY="125.0" mnemonicParsing="false" onAction="#startGame" prefHeight="37.0" prefWidth="77.0" text="Start" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="41.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Fájl">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#mentes" text="Mentés" />
+                  <MenuItem mnemonicParsing="false" onAction="#mentettBetolt" text="Mentett állás betöltése" />
+                  <MenuItem mnemonicParsing="false" onAction="#exitKitolas" text="Kilépés" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Súgó">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#szabalyokKitolas" text="Szabályok" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

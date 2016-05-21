@@ -1,16 +1,13 @@
 package hu.unideb.inf.prt.kitolas.model;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-
 public class KitolasData {
 
-	private StringProperty tablanB;
-	private StringProperty levettB;
-	private StringProperty tablanW;
-	private StringProperty levettW;
-	private StringProperty korSzam;
-	private StringProperty lepesSzam;
+	private String tablanB;
+	private String levettB;
+	private String tablanW;
+	private String levettW;
+	private String korSzam;
+	private String lepesSzam;
 	
 	private int [][] tabla = new int [6][6];
 		
@@ -19,87 +16,60 @@ public class KitolasData {
 	}
 
 	public KitolasData(String tablanB, String levettB, String tablanW, String levettW, String korSzam, String lepesSzam) {
-		this.tablanB = new SimpleStringProperty(tablanB);
-		this.levettB = new SimpleStringProperty(levettB);
-		this.tablanW = new SimpleStringProperty(tablanW);
-		this.levettW = new SimpleStringProperty(levettW);
-		this.korSzam = new SimpleStringProperty(korSzam);
-		this.lepesSzam = new SimpleStringProperty(lepesSzam);
-	}
-
-	public StringProperty getTablanBProperty() {
-		return tablanB;
-	}
-	public void setTablanBProperty(StringProperty tablanB) {
 		this.tablanB = tablanB;
-	}
-	public StringProperty getLevettBProperty() {
-		return levettB;
-	}
-	public void setLevettBProperty(StringProperty levettB) {
 		this.levettB = levettB;
-	}
-	public StringProperty getTablanWProperty() {
-		return tablanW;
-	}
-	public void setTablanWProperty(StringProperty tablanW) {
 		this.tablanW = tablanW;
-	}
-	public StringProperty getLevettWProperty() {
-		return levettW;
-	}
-	public void setLevettWProperty(StringProperty levettW) {
 		this.levettW = levettW;
-	}
-	public StringProperty getKorSzamProperty() {
-		return korSzam;
-	}
-	public void setKorSzamProperty(StringProperty korSzam) {
 		this.korSzam = korSzam;
-	}
-	public StringProperty getLepesSzamProperty() {
-		return lepesSzam;
-	}
-	public void setLepesSzamProperty(StringProperty lepesSzam) {
 		this.lepesSzam = lepesSzam;
 	}
 
-
 	public String getTablanB() {
-		return tablanB.get();
+		return tablanB;
 	}
+
 	public void setTablanB(String tablanB) {
-		this.tablanB.set(tablanB);
+		this.tablanB = tablanB;
 	}
+
 	public String getLevettB() {
-		return levettB.get();
+		return levettB;
 	}
+
 	public void setLevettB(String levettB) {
-		this.levettB.set(levettB);
+		this.levettB = levettB;
 	}
+
 	public String getTablanW() {
-		return tablanW.get();
+		return tablanW;
 	}
+
 	public void setTablanW(String tablanW) {
-		this.tablanW.set(tablanW);
+		this.tablanW = tablanW;
 	}
+
 	public String getLevettW() {
-		return levettW.get();
+		return levettW;
 	}
+
 	public void setLevettW(String levettW) {
-		this.levettW.set(levettW);
+		this.levettW = levettW;
 	}
+
 	public String getKorSzam() {
-		return korSzam.get();
+		return korSzam;
 	}
+
 	public void setKorSzam(String korSzam) {
-		this.korSzam.set(korSzam);
+		this.korSzam = korSzam;
 	}
+
 	public String getLepesSzam() {
-		return lepesSzam.get();
+		return lepesSzam;
 	}
+
 	public void setLepesSzam(String lepesSzam) {
-		this.lepesSzam.set(lepesSzam);
+		this.lepesSzam = lepesSzam;
 	}
 
 	public KitolasData(int[][] tabla) {
