@@ -1,10 +1,7 @@
 package hu.unideb.inf.prt.kitolas.model;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.URL;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -20,7 +17,23 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+/**
+* A kitolás nevű kétszemélyes táblajáték megvalósítása.
+* A mentett állás beolvasására és új mentés létrehozására
+* szolgáló osztály.
+*
+* @author  Erdőhegyi László
+* @since   2016-05-13
+* {@link https://github.com/lac15/kitolas_project}
+*/
 public class SavedGame {
+	/**
+	 * Beolvassa a mentett játékot.
+	 * @return Egy KitolasData mely tartalmazza a beolvasott adatokat.
+	 * @throws ParserConfigurationException
+	 * @throws SAXException
+	 * @throws IOException
+	 */
 	public KitolasData XMLRead() throws ParserConfigurationException, SAXException, IOException {
 		ClassLoader classLoader = getClass().getClassLoader();
 		File xml = new File(classLoader.getResource("kimentes.xml").getFile());
@@ -60,6 +73,12 @@ public class SavedGame {
 		return kd;
 	}
 
+	/**
+	 * Egy adott állás (KitolasData) mentését valósítja meg.
+	 * @param kd Az a KitolasData melyet menteni fog.
+	 * @throws TransformerException
+	 * @throws ParserConfigurationException
+	 */
 	public void XMLWrite(KitolasData kd) throws TransformerException, ParserConfigurationException {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();

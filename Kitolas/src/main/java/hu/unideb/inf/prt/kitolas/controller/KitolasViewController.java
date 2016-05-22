@@ -13,7 +13,6 @@ import javax.xml.transform.TransformerException;
 
 import org.xml.sax.SAXException;
 
-import hu.unideb.inf.prt.kitolas.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -23,12 +22,19 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Circle;
 
+/**
+* A kitolás nevű kétszemélyes táblajáték megvalósítása.
+* A játék felületén megjelenő gombok, mezők és alakzatok,
+* illetve a velük történő események kezelését valósítja meg.
+*
+* @author  Erdőhegyi László
+* @since   2016-05-13
+* {@link https://github.com/lac15/kitolas_project}
+*/
 public class KitolasViewController implements Initializable{
-	Main main;
+	private KitolasDataController kdc = new KitolasDataController();
 	
-	KitolasDataController kdc = new KitolasDataController();
-	
-	SavedGame sg = new SavedGame();
+	private SavedGame sg = new SavedGame();
 	
 	@FXML
 	private Circle circle00B;
@@ -244,12 +250,13 @@ public class KitolasViewController implements Initializable{
 	@FXML
 	private Label korLabel;
 	
-	
+	/**
+	 * Inicializálja a kezdőállapotot.
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		showKitolasData(kdc.getKt());
 	}
-	
 	
 	private void setVisibility(boolean bool) {
 		top0Button.setVisible(bool);
@@ -277,6 +284,7 @@ public class KitolasViewController implements Initializable{
 		right4Button.setVisible(bool);
 		right5Button.setVisible(bool);
 	}
+	
 	private void setCircleOpacity(int aktElem, Circle aktCircleW, Circle aktCircleB) {
 		if (aktElem == 1) {
 			aktCircleW.setOpacity(100.0);
@@ -470,11 +478,6 @@ public class KitolasViewController implements Initializable{
 		}
 	}
 	
-	
-
-
-
-
 	@FXML
 	private void shiftUpCol0() {
 		kdc.shiftUpData(Integer.parseInt(top0Button.getId()));
@@ -485,6 +488,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftUpCol1() {
 		kdc.shiftUpData(Integer.parseInt(top1Button.getId()));
@@ -495,6 +499,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftUpCol2() {
 		kdc.shiftUpData(Integer.parseInt(top2Button.getId()));
@@ -505,6 +510,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftUpCol3() {
 		kdc.shiftUpData(Integer.parseInt(top3Button.getId()));
@@ -515,6 +521,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftUpCol4() {
 		kdc.shiftUpData(Integer.parseInt(top4Button.getId()));
@@ -525,6 +532,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftUpCol5() {
 		kdc.shiftUpData(Integer.parseInt(top5Button.getId()));
@@ -546,6 +554,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftDownCol1() {
 		kdc.shiftDownData(Integer.parseInt(bot1Button.getId()));
@@ -556,6 +565,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftDownCol2() {
 		kdc.shiftDownData(Integer.parseInt(bot2Button.getId()));
@@ -566,6 +576,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftDownCol3() {
 		kdc.shiftDownData(Integer.parseInt(bot3Button.getId()));
@@ -576,6 +587,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftDownCol4() {
 		kdc.shiftDownData(Integer.parseInt(bot4Button.getId()));
@@ -586,6 +598,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftDownCol5() {
 		kdc.shiftDownData(Integer.parseInt(bot5Button.getId()));
@@ -607,6 +620,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftLeftRow1() {
 		kdc.shiftLeftData(Integer.parseInt(left1Button.getId()));
@@ -617,6 +631,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftLeftRow2() {
 		kdc.shiftLeftData(Integer.parseInt(left2Button.getId()));
@@ -627,6 +642,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftLeftRow3() {
 		kdc.shiftLeftData(Integer.parseInt(left3Button.getId()));
@@ -637,6 +653,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftLeftRow4() {
 		kdc.shiftLeftData(Integer.parseInt(left4Button.getId()));
@@ -647,6 +664,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftLeftRow5() {
 		kdc.shiftLeftData(Integer.parseInt(left5Button.getId()));
@@ -668,6 +686,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftRightRow1() {
 		kdc.shiftRightData(Integer.parseInt(right1Button.getId()));
@@ -678,6 +697,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftRightRow2() {
 		kdc.shiftRightData(Integer.parseInt(right2Button.getId()));
@@ -688,6 +708,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftRightRow3() {
 		kdc.shiftRightData(Integer.parseInt(right3Button.getId()));
@@ -698,6 +719,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftRightRow4() {
 		kdc.shiftRightData(Integer.parseInt(right4Button.getId()));
@@ -708,6 +730,7 @@ public class KitolasViewController implements Initializable{
 		incKor();		
 		popupWinnerCheck();
 	}
+	
 	@FXML
 	private void shiftRightRow5() {
 		kdc.shiftRightData(Integer.parseInt(right5Button.getId()));

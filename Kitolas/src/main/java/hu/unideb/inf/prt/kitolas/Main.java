@@ -2,20 +2,30 @@ package hu.unideb.inf.prt.kitolas;
 
 import java.io.IOException;
 
-import hu.unideb.inf.prt.kitolas.model.KitolasData;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+/**
+* A kitolás nevű kétszemélyes táblajáték megvalósítása.
+* A projekt programozási technológiák órára készül.
+*
+* @author  Erdőhegyi László
+* @since   2016-05-13
+* {@link https://github.com/lac15/kitolas_project}
+*/
 public class Main extends Application {
-	
-	private KitolasData kitolData;
 	
 	private Stage primaryStage;
 	private BorderPane kitolasView;
 	
+	/**
+	 * Felülírja az {@link Application} osztály {@link start}
+	 * metódusát. Betölti a grafikus felületet.
+	 * @param primaryStage Az a stage melyre az FXML elemek kerülnek.
+	 */
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
@@ -24,10 +34,17 @@ public class Main extends Application {
 		createKitolasView();
 	}
 	
+	/**
+	 * A program indításáért felel.
+	 * @param args Parancssori argumentumok tombje.
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
 	
+	/**
+	 * Betölti a view-t és hozzáadja a primaryStage-hez.
+	 */
 	private void createKitolasView(){
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource("/hu/unideb/inf/prt/kitolas/view/KitolasView.fxml"));
@@ -44,14 +61,6 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 		
-	}
-
-	public KitolasData getKitolData() {
-		return kitolData;
-	}
-
-	public void setKitolData(KitolasData kitolData) {
-		this.kitolData = kitolData;
 	}
 	
 }
