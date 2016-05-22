@@ -23,7 +23,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Circle;
 
-public class KitolasController implements Initializable{
+public class KitolasViewController implements Initializable{
 	Main main;
 	
 	KitolasDataController kdc = new KitolasDataController();
@@ -251,31 +251,31 @@ public class KitolasController implements Initializable{
 	}
 	
 	
-	private void setVisible() {
-		top0Button.setVisible(true);
-		top1Button.setVisible(true);
-		top2Button.setVisible(true);
-		top3Button.setVisible(true);
-		top4Button.setVisible(true);
-		top5Button.setVisible(true);
-		bot0Button.setVisible(true);
-		bot1Button.setVisible(true);
-		bot2Button.setVisible(true);
-		bot3Button.setVisible(true);
-		bot4Button.setVisible(true);
-		bot5Button.setVisible(true);
-		left0Button.setVisible(true);
-		left1Button.setVisible(true);
-		left2Button.setVisible(true);
-		left3Button.setVisible(true);
-		left4Button.setVisible(true);
-		left5Button.setVisible(true);
-		right0Button.setVisible(true);
-		right1Button.setVisible(true);
-		right2Button.setVisible(true);
-		right3Button.setVisible(true);
-		right4Button.setVisible(true);
-		right5Button.setVisible(true);
+	private void setVisibility(boolean bool) {
+		top0Button.setVisible(bool);
+		top1Button.setVisible(bool);
+		top2Button.setVisible(bool);
+		top3Button.setVisible(bool);
+		top4Button.setVisible(bool);
+		top5Button.setVisible(bool);
+		bot0Button.setVisible(bool);
+		bot1Button.setVisible(bool);
+		bot2Button.setVisible(bool);
+		bot3Button.setVisible(bool);
+		bot4Button.setVisible(bool);
+		bot5Button.setVisible(bool);
+		left0Button.setVisible(bool);
+		left1Button.setVisible(bool);
+		left2Button.setVisible(bool);
+		left3Button.setVisible(bool);
+		left4Button.setVisible(bool);
+		left5Button.setVisible(bool);
+		right0Button.setVisible(bool);
+		right1Button.setVisible(bool);
+		right2Button.setVisible(bool);
+		right3Button.setVisible(bool);
+		right4Button.setVisible(bool);
+		right5Button.setVisible(bool);
 	}
 	private void setCircleOpacity(int aktElem, Circle aktCircleW, Circle aktCircleB) {
 		if (aktElem == 1) {
@@ -310,7 +310,7 @@ public class KitolasController implements Initializable{
 		clearTable();
 		kdc.startKitolasGameData();
 		
-		setVisible();
+		setVisibility(true);
 	}
 	
 	private void paintKitolasTable() {
@@ -423,7 +423,7 @@ public class KitolasController implements Initializable{
 			levettBLabel.setText(kdc.getKt().getLevettB());
 			tablanWLabel.setText(kdc.getKt().getTablanW());
 			levettWLabel.setText(kdc.getKt().getLevettW());
-			setVisible();
+			setVisibility(true);
 		} catch (ParserConfigurationException | SAXException | IOException e) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Hiba!");
@@ -448,7 +448,7 @@ public class KitolasController implements Initializable{
 			startKitolasGame();
 			paintKitolasTable();
 		} else {
-			;
+			
 		}
 	}
 	
@@ -742,6 +742,7 @@ public class KitolasController implements Initializable{
 			startGame();
 		} else {
 			clearTable();
+			setVisibility(false);
 		}
 	}
 	
@@ -761,6 +762,7 @@ public class KitolasController implements Initializable{
 			startGame();
 		} else {
 			clearTable();
+			setVisibility(false);
 		}
 	}
 

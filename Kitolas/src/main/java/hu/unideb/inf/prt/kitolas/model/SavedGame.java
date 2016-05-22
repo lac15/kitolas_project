@@ -1,7 +1,9 @@
 package hu.unideb.inf.prt.kitolas.model;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URL;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -20,7 +22,8 @@ import org.xml.sax.SAXException;
 
 public class SavedGame {
 	public KitolasData XMLRead() throws ParserConfigurationException, SAXException, IOException {
-		File xml = new File("/Users/lac/Desktop/progtech/kitolas_project/Kitolas/src/main/resources/kimentes.xml");
+		ClassLoader classLoader = getClass().getClassLoader();
+		File xml = new File(classLoader.getResource("kimentes.xml").getFile());
 
 		KitolasData kd = new KitolasData();
 		
@@ -106,9 +109,10 @@ public class SavedGame {
 		TransformerFactory tf = TransformerFactory.newInstance();
 		Transformer t = tf.newTransformer();
 
+		ClassLoader classLoader = getClass().getClassLoader();
+		
 		DOMSource source = new DOMSource(doc);
-		StreamResult result = new StreamResult(
-				new File("/Users/lac/Desktop/progtech/kitolas_project/Kitolas/src/main/resources/kimentes.xml"));
+		StreamResult result = new StreamResult(new File(classLoader.getResource("kimentes.xml").getFile()));
 		t.transform(source, result);
 	}
 }
