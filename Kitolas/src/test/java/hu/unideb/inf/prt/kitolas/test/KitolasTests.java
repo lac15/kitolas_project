@@ -137,24 +137,22 @@ public class KitolasTests {
 	
 	@Test
 	public void testStartKitolasGameData() {
-		for(int k = 0; k < 20; k++) {
-			int count1 = 0;
-			int count2 = 0;
-			
-			kdc.startKitolasGameData();
-			for(int i = 0; i < 6; i++) {
-				for(int j = 0; j < 6; j++) {
-					if (kdc.getKt().getElem(i, j) == 1) {
-						count1++;
-					} else if (kdc.getKt().getElem(i, j) == 2) {
-						count2++;
-					}
+		int count1 = 0;
+		int count2 = 0;
+
+		kdc.startKitolasGameData();
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 6; j++) {
+				if (kdc.getKt().getElem(i, j) == 1) {
+					count1++;
+				} else if (kdc.getKt().getElem(i, j) == 2) {
+					count2++;
 				}
 			}
-			
-			assertEquals(6, count1);
-			assertEquals(6, count2);
 		}
+
+		assertEquals(6, count1);
+		assertEquals(6, count2);
 	}
 	
 	@Test

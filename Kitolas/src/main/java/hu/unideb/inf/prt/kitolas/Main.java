@@ -14,7 +14,6 @@ import javafx.stage.Stage;
 *
 * @author  Erdőhegyi László
 * @since   2016-05-13
-* {@link https://github.com/lac15/kitolas_project}
 */
 public class Main extends Application {
 	
@@ -22,8 +21,8 @@ public class Main extends Application {
 	private BorderPane kitolasView;
 	
 	/**
-	 * Felülírja az {@link Application} osztály {@link start}
-	 * metódusát. Betölti a grafikus felületet.
+	 * Felülírja az Application osztály start metódusát.
+	 * Betölti a grafikus felületet.
 	 * @param primaryStage Az a stage melyre az FXML elemek kerülnek.
 	 */
 	@Override

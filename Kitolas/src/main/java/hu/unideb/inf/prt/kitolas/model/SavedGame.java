@@ -24,7 +24,6 @@ import org.xml.sax.SAXException;
 *
 * @author  Erdőhegyi László
 * @since   2016-05-13
-* {@link https://github.com/lac15/kitolas_project}
 */
 public class SavedGame {
 	/**

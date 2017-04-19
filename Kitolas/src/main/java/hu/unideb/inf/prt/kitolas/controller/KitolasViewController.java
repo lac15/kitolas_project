@@ -29,7 +29,6 @@ import javafx.scene.shape.Circle;
 *
 * @author  Erdőhegyi László
 * @since   2016-05-13
-* {@link https://github.com/lac15/kitolas_project}
 */
 public class KitolasViewController implements Initializable{
 	private KitolasDataController kdc = new KitolasDataController();
