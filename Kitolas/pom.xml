@@ -61,7 +61,7 @@
 					<configuration>
 						<archive>
 							<manifest>
-								<mainClass>Main</mainClass>
+								<mainClass>hu.unideb.inf.prt.kitolas.Main</mainClass>
 							</manifest>
 						</archive>
 						<descriptorRefs>

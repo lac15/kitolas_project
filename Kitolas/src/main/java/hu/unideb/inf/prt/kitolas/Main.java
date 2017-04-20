@@ -21,8 +21,8 @@ public class Main extends Application {
 	private BorderPane kitolasView;
 	
 	/**
-	 * Felülírja az Application osztály start metódusát.
 	 * Betölti a grafikus felületet.
+	 * Felülírja az Application osztály start metódusát.
 	 * @param primaryStage Az a stage melyre az FXML elemek kerülnek.
 	 */
 	@Override
@@ -35,7 +35,7 @@ public class Main extends Application {
 	
 	/**
 	 * A program indításáért felel.
-	 * @param args Parancssori argumentumok tombje.
+	 * @param args Parancssori argumentumok tömbje.
 	 */
 	public static void main(String[] args) {
 		launch(args);
