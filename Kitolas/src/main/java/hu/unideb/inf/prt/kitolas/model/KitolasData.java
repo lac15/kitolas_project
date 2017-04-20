@@ -27,7 +27,7 @@ public class KitolasData {
 	}
 
 	/**
-	 * Konstruktor a paraméterekkel történő pédányosításokhoz.
+	 * Konstruktor a paraméterekkel történő példányosításokhoz.
 	 * @param tablanB Az adott játékmenetben még a táblán lévő fekete kavicsok száma.
 	 * @param levettB Az adott játékmenetben már levett fekete kavicsok száma.
 	 * @param tablanW Az adott játékmenetben még a táblán lévő fehér kavicsok száma.
