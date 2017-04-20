@@ -11,6 +11,8 @@ import java.util.ResourceBundle;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
 import javafx.fxml.FXML;
@@ -31,6 +33,8 @@ import javafx.scene.shape.Circle;
 * @since   2016-05-13
 */
 public class KitolasViewController implements Initializable{
+	private static Logger logger = LoggerFactory.getLogger(KitolasViewController.class);
+	
 	private KitolasDataController kdc = new KitolasDataController();
 	
 	private SavedGame sg = new SavedGame();
@@ -314,7 +318,6 @@ public class KitolasViewController implements Initializable{
 	}
 
 	private void startKitolasGame() {
-		clearTable();
 		kdc.startKitolasGameData();
 		
 		setVisibility(true);
@@ -749,6 +752,8 @@ public class KitolasViewController implements Initializable{
 	}
 	
 	private void popupWinner(String gyoztes) {
+		logger.info("A " + gyoztes + " nyert!");
+		
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Győztes");
 		alert.setHeaderText(gyoztes + " nyert!");
@@ -769,6 +774,8 @@ public class KitolasViewController implements Initializable{
 	}
 	
 	private void popupDraw() {
+		logger.info("Döntetlen!");
+		
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Eredmény");
 		alert.setHeaderText("Döntetlen!");

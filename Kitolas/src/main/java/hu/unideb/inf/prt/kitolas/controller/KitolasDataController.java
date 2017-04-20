@@ -2,6 +2,9 @@ package hu.unideb.inf.prt.kitolas.controller;
 
 import java.util.Random;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import hu.unideb.inf.prt.kitolas.model.KitolasData;
 
 /**
@@ -13,6 +16,8 @@ import hu.unideb.inf.prt.kitolas.model.KitolasData;
 * @since   2016-05-13
 */
 public class KitolasDataController {
+	private static Logger logger = LoggerFactory.getLogger(KitolasDataController.class);
+	
 	private KitolasData kt = new KitolasData ("6", "0", "6", "0", "1/36", "0");
 	
 	private int aktLevett = 0;
@@ -32,6 +37,8 @@ public class KitolasDataController {
 				kt.setElem(i, j, 0);
 			}
 		}
+		
+		logger.info("A tábla letisztult.");
 	}
 	
 	/**
@@ -65,6 +72,8 @@ public class KitolasDataController {
 				fekete++;
 			}
 		}
+		
+		logger.info("Új játék kezdődött.");
 	}
 
 	/**

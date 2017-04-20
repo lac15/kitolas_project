@@ -20,10 +20,26 @@
 	<connection>scm:git://github.com/lac15/kitolas_project.git</connection>
 	<developerConnection>scm:git:git@github.com/lac15/kitolas_project.git</developerConnection>
    </scm>
-  
+   
+	<profiles>
+		<profile>
+			<id>simple</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<dependencies>
+				<dependency>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-simple</artifactId>
+					<version>1.7.25</version>
+					<scope>runtime</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+   
   <build>
   	<plugins>
-  		
   		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-enforcer-plugin</artifactId>

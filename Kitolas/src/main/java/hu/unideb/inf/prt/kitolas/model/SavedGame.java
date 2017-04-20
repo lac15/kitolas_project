@@ -11,11 +11,15 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+
+import hu.unideb.inf.prt.kitolas.controller.KitolasViewController;
 
 /**
 * A kitolás nevű kétszemélyes táblajáték megvalósítása.
@@ -26,6 +30,8 @@ import org.xml.sax.SAXException;
 * @since   2016-05-13
 */
 public class SavedGame {
+	private static Logger logger = LoggerFactory.getLogger(SavedGame.class);
+	
 	/**
 	 * Beolvassa a mentett játékot.
 	 * @return Egy KitolasData mely tartalmazza a beolvasott adatokat.
@@ -69,6 +75,9 @@ public class SavedGame {
 				}
 			}
 		}
+		
+		logger.info("A mentett állás betöltődött.");
+		
 		return kd;
 	}
 
@@ -132,5 +141,7 @@ public class SavedGame {
 		DOMSource source = new DOMSource(doc);
 		StreamResult result = new StreamResult(new File(classLoader.getResource("kimentes.xml").getFile()));
 		t.transform(source, result);
+		
+		logger.info("Az állás mentésre került.");
 	}
 }
