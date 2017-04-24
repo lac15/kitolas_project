@@ -2,26 +2,16 @@ package hu.unideb.inf.prt.kitolas.test;
 
 import static org.junit.Assert.*;
 
-import java.io.IOException;
-
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
-
 import org.junit.Test;
-import org.xml.sax.SAXException;
 
 import hu.unideb.inf.prt.kitolas.controller.KitolasDataController;
-import hu.unideb.inf.prt.kitolas.model.KitolasData;
-import hu.unideb.inf.prt.kitolas.model.SavedGame;
 
 public class KitolasTests {
 
 	private static KitolasDataController kdc;
-	private static SavedGame sg;
 	
 	static {
 		kdc = new KitolasDataController();
-		sg = new SavedGame();
 	}
 
 	@Test
@@ -189,17 +179,4 @@ public class KitolasTests {
 		assertEquals("4", kdc.getKt().getTablanW());
 	}
 	
-	@Test
-	public void testXMLWrite() throws TransformerException, ParserConfigurationException, SAXException, IOException {
-		kdc.setKt(new KitolasData ("5","1","4","2","3/36","6"));
-		sg.XMLWrite(kdc.getKt());
-		KitolasData kd = sg.XMLRead();
-		
-		assertEquals(kdc.getKt().getTablanB(), kd.getTablanB());
-		assertEquals(kdc.getKt().getLevettB(), kd.getLevettB());
-		assertEquals(kdc.getKt().getTablanW(), kd.getTablanW());
-		assertEquals(kdc.getKt().getLevettW(), kd.getLevettW());
-		assertEquals(kdc.getKt().getKorSzam(), kd.getKorSzam());
-		assertEquals(kdc.getKt().getLepesSzam(), kd.getLepesSzam());
-	}
 }
