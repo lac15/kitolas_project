@@ -9,57 +9,62 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 /**
-* A kitolás nevű kétszemélyes táblajáték megvalósítása.
-* A projekt programozási technológiák órára készül.
-*
-* @author  Erdőhegyi László
-* @since   2016-05-13
-*/
+ * A kitolás nevű kétszemélyes táblajáték megvalósítása. A projekt programozási
+ * technológiák órára készül.
+ *
+ * @author Erdőhegyi László
+ * @since 2016-05-13
+ */
 public class Main extends Application {
-	
-	private Stage primaryStage;
-	private BorderPane kitolasView;
-	
-	/**
-	 * Betölti a grafikus felületet.
-	 * Felülírja az Application osztály start metódusát.
-	 * @param primaryStage Az a stage melyre az FXML elemek kerülnek.
-	 */
-	@Override
-	public void start(Stage primaryStage) {
-		this.primaryStage = primaryStage;
-		this.primaryStage.setTitle("Kitolas");
-		
-		createKitolasView();
-	}
-	
-	/**
-	 * A program indításáért felel.
-	 * @param args Parancssori argumentumok tömbje.
-	 */
-	public static void main(String[] args) {
-		launch(args);
-	}
-	
-	/**
-	 * Betölti a view-t és hozzáadja a primaryStage-hez.
-	 */
-	private void createKitolasView(){
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource("/hu/unideb/inf/prt/kitolas/view/KitolasView.fxml"));
-		try {
-			kitolasView = (BorderPane)loader.load();
-			Scene scene = new Scene(kitolasView);
-			primaryStage.setScene(scene);
-			primaryStage.show();
-			
-			/*KitolasController controller = loader.getController();
-			controller.setMain(this);*/
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-	}
-	
+    /**
+     * Ez egy Stage.
+     */
+    private Stage primaryStage;
+    /**
+     * Ez egy BorderPane.
+     */
+    private BorderPane kitolasView;
+
+    /**
+     * Betölti a grafikus felületet. Felülírja az Application osztály start
+     * metódusát.
+     *
+     * @param ps
+     *            Az a stage melyre az FXML elemek kerülnek.
+     */
+    public final void start(final Stage ps) {
+        this.primaryStage = ps;
+        this.primaryStage.setTitle("Kitolas");
+
+        createKitolasView();
+    }
+
+    /**
+     * A program indításáért felel.
+     *
+     * @param args
+     *            Parancssori argumentumok tömbje.
+     */
+    public static void main(final String[] args) {
+        launch(args);
+    }
+
+    /**
+     * Betölti a view-t és hozzáadja a primaryStage-hez.
+     */
+    private void createKitolasView() {
+        String path = "/hu/unideb/inf/prt/kitolas/view/";
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource(path + "KitolasView.fxml"));
+        try {
+            kitolasView = (BorderPane) loader.load();
+            Scene scene = new Scene(kitolasView);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

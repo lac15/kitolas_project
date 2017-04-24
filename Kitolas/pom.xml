@@ -1,30 +1,31 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>hu.unideb.inf.prt</groupId>
-  <artifactId>Kitolas</artifactId>
-  <version>1.0</version>
-  
-  <description>Kitolas nevű kétszemélyes táblajáték.</description>
-  
-  <developers>
-	<developer>
-		<email>laszlo.erdohegyi@gmail.com</email>
-		<name>Erdőhegyi László</name>
-		<url>https://github.com/lac15</url>
-		<id>lac15</id>
-	</developer>
-  </developers>
-  
-  <scm>
-	<url>https://github.com/lac15/kitolas_project</url>
-	<connection>scm:git://github.com/lac15/kitolas_project.git</connection>
-	<developerConnection>scm:git:git@github.com/lac15/kitolas_project.git</developerConnection>
-   </scm>
-   
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>hu.unideb.inf.prt</groupId>
+	<artifactId>Kitolas</artifactId>
+	<version>1.0</version>
+
+	<description>Kitolas nevű kétszemélyes táblajáték.</description>
+
+	<developers>
+		<developer>
+			<email>laszlo.erdohegyi@gmail.com</email>
+			<name>Erdőhegyi László</name>
+			<url>https://github.com/lac15</url>
+			<id>lac15</id>
+		</developer>
+	</developers>
+
+	<scm>
+		<url>https://github.com/lac15/kitolas_project</url>
+		<connection>scm:git://github.com/lac15/kitolas_project.git</connection>
+		<developerConnection>scm:git:git@github.com/lac15/kitolas_project.git</developerConnection>
+	</scm>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-   
+
 	<profiles>
 		<profile>
 			<id>simple</id>
@@ -41,112 +42,112 @@
 			</dependencies>
 		</profile>
 	</profiles>
-   
-  <build>
-  	<plugins>
-  		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-enforcer-plugin</artifactId>
-			<version>1.4.1</version>
-			<executions>
-				<execution>
-					<id>check-versions</id>
-					<goals>
-						<goal>enforce</goal>
-					</goals>
-					<configuration>
-						<rules>
-							<requireMavenVersion>
-								<version>[3.0,)</version>
-							</requireMavenVersion>
-							<requireJavaVersion>
-								<version>1.8</version>
-							</requireJavaVersion>
-						</rules>
-					</configuration>
-				</execution>
-			</executions>
-		</plugin>
-  	
-	  	<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-assembly-plugin</artifactId>
-			<version>2.6</version>
-			<executions>
-				<execution>
-					<goals>
-						<goal>single</goal>
-					</goals>
-					<phase>package</phase>
-					<configuration>
-						<archive>
-							<manifest>
-								<mainClass>hu.unideb.inf.prt.kitolas.Main</mainClass>
-							</manifest>
-						</archive>
-						<descriptorRefs>
-							<descriptorRef>jar-with-dependencies</descriptorRef>
-						</descriptorRefs>
-					</configuration>
-				</execution>
-			</executions>
-		</plugin>
-	</plugins>
-  </build>
-  
-  <dependencies>
-	<dependency> 
-		<groupId>org.slf4j</groupId>
-    	<artifactId>slf4j-api</artifactId>
-    	<version>1.7.25</version>
-	</dependency>
-	
-	<dependency>
-		<groupId>junit</groupId>
-		<artifactId>junit</artifactId>
-		<version>4.11</version>
-	</dependency>
-  </dependencies>
-  
-  <reporting>
-  	<plugins>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-javadoc-plugin</artifactId>
-			<version>2.10.3</version>
-		</plugin>
-		
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-surefire-report-plugin</artifactId>
-			<version>2.19.1</version>
-		</plugin>
-		
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-jxr-plugin</artifactId>
-			<version>2.5</version>
-		</plugin>
-		
-		<plugin>
-			<groupId>org.codehaus.mojo</groupId>
-			<artifactId>cobertura-maven-plugin</artifactId>
-			<version>2.7</version>
-		</plugin>
-		
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-checkstyle-plugin</artifactId>
-			<version>2.17</version>
-			<reportSets>
-				<reportSet>
-					<reports>
-						<report>checkstyle</report>
-					</reports>
-				</reportSet>
-			</reportSets>
-		</plugin>
-	</plugins>
-  </reporting>
-  
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>1.4.1</version>
+				<executions>
+					<execution>
+						<id>check-versions</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireMavenVersion>
+									<version>[3.0,)</version>
+								</requireMavenVersion>
+								<requireJavaVersion>
+									<version>1.8</version>
+								</requireJavaVersion>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<phase>package</phase>
+						<configuration>
+							<archive>
+								<manifest>
+									<mainClass>hu.unideb.inf.prt.kitolas.Main</mainClass>
+								</manifest>
+							</archive>
+							<descriptorRefs>
+								<descriptorRef>jar-with-dependencies</descriptorRef>
+							</descriptorRefs>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.25</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+		</dependency>
+	</dependencies>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.3</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.19.1</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.5</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.7</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.17</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>checkstyle</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
+
 </project>
