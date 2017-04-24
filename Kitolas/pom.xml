@@ -21,6 +21,10 @@
 	<developerConnection>scm:git:git@github.com/lac15/kitolas_project.git</developerConnection>
    </scm>
    
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+   
 	<profiles>
 		<profile>
 			<id>simple</id>

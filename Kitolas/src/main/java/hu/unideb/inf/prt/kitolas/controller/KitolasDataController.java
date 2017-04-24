@@ -147,7 +147,7 @@ public class KitolasDataController {
 	/**
 	 * A paraméterként kapott sort eltolja eggyel
 	 * balra.
-	 * @param oIndex Az eltolni kívánt sor indexe.
+	 * @param sIndex Az eltolni kívánt sor indexe.
 	 */
 	public void shiftLeftData(int sIndex) {
 		for (int j = 0; j < 6; j++) {
@@ -164,7 +164,7 @@ public class KitolasDataController {
 	/**
 	 * A paraméterként kapott sort eltolja eggyel
 	 * balra.
-	 * @param oIndex Az eltolni kívánt sor indexe.
+	 * @param sIndex Az eltolni kívánt sor indexe.
 	 */
 	public void shiftRightData(int sIndex) {
 		for (int j = 5; j >= 0; j--) {
@@ -218,7 +218,7 @@ public class KitolasDataController {
 
 	/**
 	 * Beállítja az aktuálisan utoljára levett kavics színát.
-	 * @param Milyen színű legyen a kavics.
+	 * @param aktLevett Milyen színű legyen a kavics.
 	 */
 	public void setAktLevett(int aktLevett) {
 		this.aktLevett = aktLevett;

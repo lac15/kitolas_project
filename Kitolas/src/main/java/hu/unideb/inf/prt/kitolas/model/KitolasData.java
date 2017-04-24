@@ -6,7 +6,6 @@ package hu.unideb.inf.prt.kitolas.model;
  * 
  * @author	Erdőhegyi László
  * @since	2016-05-13
- * {@link https://github.com/lac15/kitolas_project}
  */
 public class KitolasData {
 
@@ -127,7 +126,7 @@ public class KitolasData {
 	}
 
 	/**
-	 * @param korSzam Baállítja a paraméterként kapott értékre a
+	 * @param lepesSzam Baállítja a paraméterként kapott értékre a
 	 * megtett lépések számát számát.
 	 */
 	public void setLepesSzam(String lepesSzam) {
