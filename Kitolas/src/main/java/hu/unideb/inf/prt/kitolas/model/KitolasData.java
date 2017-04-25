@@ -19,7 +19,7 @@ public class KitolasData {
     private int[][] tabla = new int[6][6];
 
     /**
-     * Konstruktor a paraméter nélküli példányosításokhoz,
+     * Konstruktor a paraméter nélküli példányosításokhoz.
      */
     public KitolasData() {
         super();

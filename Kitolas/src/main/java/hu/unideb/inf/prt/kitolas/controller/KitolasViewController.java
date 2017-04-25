@@ -245,6 +245,9 @@ public class KitolasViewController implements Initializable {
 
     /**
      * Inicializálja a kezdőállapotot.
+     * 
+     * @param location hely
+     * @param resources forrás
      */
     public void initialize(URL location, ResourceBundle resources) {
         showKitolasData(kdc.getKt());
