@@ -1,4 +1,4 @@
-package hu.unideb.inf.prt.kitolas.test;
+package hu.unideb.inf.prt.kitolas.controller;
 
 import static org.junit.Assert.*;
 
@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import hu.unideb.inf.prt.kitolas.controller.KitolasDataController;
 
-public class KitolasTests {
+public class TestKitolasDataController {
 
     private static KitolasDataController kdc;
 
@@ -15,7 +15,7 @@ public class KitolasTests {
     }
 
     @Test
-    public void testShiftRightData() {
+    public void shiftRightDataTest() {
         kdc.getKt().setTabla(new int[][] { { 0, 0, 0, 0, 0, 2 }, { 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0 }, { 1, 0, 0, 0, 0, 0 } });
 
@@ -28,7 +28,7 @@ public class KitolasTests {
     }
 
     @Test
-    public void testShiftUp() {
+    public void shiftUpDataTest() {
         kdc.getKt().setTabla(new int[][] { { 0, 0, 0, 0, 0, 2 }, { 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0 }, { 1, 0, 0, 0, 0, 0 } });
 
@@ -41,7 +41,7 @@ public class KitolasTests {
     }
 
     @Test
-    public void testShiftLeft() {
+    public void shiftLeftDataTest() {
         kdc.getKt().setTabla(new int[][] { { 0, 0, 0, 0, 0, 2 }, { 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0 }, { 1, 0, 0, 0, 0, 0 } });
 
@@ -54,7 +54,7 @@ public class KitolasTests {
     }
 
     @Test
-    public void testShiftDown() {
+    public void shiftDownDataTest() {
         kdc.getKt().setTabla(new int[][] { { 0, 0, 0, 0, 0, 2 }, { 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0 }, { 1, 0, 0, 0, 0, 0 } });
 
@@ -67,14 +67,14 @@ public class KitolasTests {
     }
 
     @Test
-    public void testIncKorData() {
+    public void incKorDataTest() {
         kdc.getKt().setLepesSzam("1");
         kdc.incKorData();
         assertEquals("2/36", kdc.getKt().getKorSzam());
     }
 
     @Test
-    public void testClearTableData() {
+    public void clearTableDataTest() {
         kdc.getKt().setTabla(new int[][] { { 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1 },
                 { 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1 } });
 
@@ -86,7 +86,7 @@ public class KitolasTests {
     }
 
     @Test
-    public void testStartKitolasGameData() {
+    public void startKitolasGameDataTest() {
         int count1 = 0;
         int count2 = 0;
 
@@ -106,7 +106,7 @@ public class KitolasTests {
     }
 
     @Test
-    public void testLevettIncData() {
+    public void levettIncDataTest() {
         kdc.setAktLevett(2);
         kdc.getKt().setLevettB("2");
 
@@ -123,7 +123,7 @@ public class KitolasTests {
     }
 
     @Test
-    public void testTablanDecData() {
+    public void tablanDecDataTest() {
         kdc.setAktLevett(2);
         kdc.getKt().setTablanB("2");
 
