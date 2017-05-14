@@ -1,13 +1,19 @@
 package hu.unideb.inf.prt.kitolas.controller;
 
 import hu.unideb.inf.prt.kitolas.model.KitolasData;
+import hu.unideb.inf.prt.kitolas.model.SavedGame;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.xml.sax.SAXException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -30,6 +36,8 @@ public class KitolasViewController implements Initializable {
     private static Logger logger = LoggerFactory.getLogger(KitolasViewController.class);
 
     private KitolasDataController kdc = new KitolasDataController();
+    
+    private SavedGame sg = new SavedGame();
 
     @FXML
     private Circle circle00B;
@@ -415,6 +423,44 @@ public class KitolasViewController implements Initializable {
 
         }
     }
+    
+    @FXML
+	private void mentes() throws TransformerException, ParserConfigurationException {
+		Alert alert = new Alert(AlertType.WARNING);
+		alert.setTitle("Mentés");
+		alert.setHeaderText("Biztosan mented a játékot?");
+
+		ButtonType buttonTypeIgen = new ButtonType("Igen");
+		ButtonType buttonTypeNem = new ButtonType("Nem");
+
+		alert.getButtonTypes().setAll(buttonTypeIgen, buttonTypeNem);
+
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == buttonTypeIgen) {
+			sg.XMLWrite(kdc.getKt());
+		} else {
+			;
+		}
+	}
+	
+	@FXML
+	private void mentettBetolt() {
+		try {
+			kdc.setKt(sg.XMLRead());
+			paintKitolasTable();
+			korLabel.setText(kdc.getKt().getKorSzam());
+			tablanBLabel.setText(kdc.getKt().getTablanB());
+			levettBLabel.setText(kdc.getKt().getLevettB());
+			tablanWLabel.setText(kdc.getKt().getTablanW());
+			levettWLabel.setText(kdc.getKt().getLevettW());
+			setVisibility(true);
+		} catch (ParserConfigurationException | SAXException | IOException e) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Hiba!");
+			alert.setHeaderText("Nincs mentett állás amit be lehetne tölteni!");
+			alert.showAndWait();
+		}
+	}
 
     private void levettInc() {
         kdc.levettIncData();

@@ -293,6 +293,8 @@
           <Menu mnemonicParsing="false" text="Fájl">
             <items>
                   <MenuItem mnemonicParsing="false" onAction="#exitKitolas" text="Kilépés" />
+                  <MenuItem mnemonicParsing="false" onAction="#mentes" text="Mentés" />
+                  <MenuItem mnemonicParsing="false" onAction="#mentettBetolt" text="Mentett állás betöltése" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Súgó">
