@@ -2,6 +2,6 @@
 .recommenders
 .classpath
 .project
-*.log
 .settings/
 target/
+*.log

@@ -30,6 +30,16 @@ import org.xml.sax.SAXException;
 public class SavedGame {
 	private static Logger logger = LoggerFactory.getLogger(SavedGame.class);
 	
+	private String osName = System.getProperty("os.name").toLowerCase();
+	
+	private String userName = System.getProperty("user.name");
+	
+	private String windowsFilePath = "C:" + File.separator + "Users" + File.separator + 
+    		userName + File.separator + "Documents" + File.separator + "kimentes.xml";
+	
+	private String linuxFilePath = File.separator + "home" + File.separator + userName + 
+			File.separator + "kimentes.xml";
+	
 	/**
 	 * Beolvassa a mentett játékot.
 	 * @return Egy KitolasData mely tartalmazza a beolvasott adatokat.
@@ -38,43 +48,54 @@ public class SavedGame {
 	 * @throws IOException io exception
 	 */
 	public KitolasData XMLRead() throws ParserConfigurationException, SAXException, IOException {
-		ClassLoader classLoader = getClass().getClassLoader();
-		File xml = new File(classLoader.getResource("kimentes.xml").getFile());
+		File xml = null;
+		
+		if (osName.contains("windows")) {
+			xml = new File(windowsFilePath);
+		}
+		else if (osName.contains("linux") || osName.contains("unix")) {
+			xml = new File(linuxFilePath);
+		}
+		else {
+			logger.warn("Nem ismert operációs rendszer. Nem lehet betölteni a fájlt.");
+		}
 
 		KitolasData kd = new KitolasData();
 		
-		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-		DocumentBuilder db = dbf.newDocumentBuilder();
-		Document doc = db.parse(xml);
-
-		doc.getDocumentElement().normalize();
-
-		NodeList list = doc.getElementsByTagName("lastGame");
-
-		for (int i = 0; i < list.getLength(); i++) {
-			Node node = list.item(i);
-			if (node.getNodeType() == Node.ELEMENT_NODE) {
-				Element element = (Element) node;
-
-				kd.setKorSzam(element.getElementsByTagName("korSzam").item(0).getTextContent());
-				kd.setLepesSzam(element.getElementsByTagName("lepesSzam").item(0).getTextContent());
-				kd.setTablanB(element.getElementsByTagName("tablanB").item(0).getTextContent());
-				kd.setLevettB(element.getElementsByTagName("levettB").item(0).getTextContent());
-				kd.setTablanW(element.getElementsByTagName("tablanW").item(0).getTextContent());
-				kd.setLevettW(element.getElementsByTagName("levettW").item(0).getTextContent());
-
-				for (int sor = 0; sor < 6; sor++) {
-					String sorStr = element.getElementsByTagName("tabla").item(sor).getTextContent();
-					char[] cha = sorStr.toCharArray();
-
-					for (int y = 0; y < 6; y++) {
-						kd.setElem(sor, y, Integer.parseInt(cha[y] + ""));
+		if (xml != null) {
+			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+			DocumentBuilder db = dbf.newDocumentBuilder();
+			Document doc = db.parse(xml);
+	
+			doc.getDocumentElement().normalize();
+	
+			NodeList list = doc.getElementsByTagName("lastGame");
+	
+			for (int i = 0; i < list.getLength(); i++) {
+				Node node = list.item(i);
+				if (node.getNodeType() == Node.ELEMENT_NODE) {
+					Element element = (Element) node;
+	
+					kd.setKorSzam(element.getElementsByTagName("korSzam").item(0).getTextContent());
+					kd.setLepesSzam(element.getElementsByTagName("lepesSzam").item(0).getTextContent());
+					kd.setTablanB(element.getElementsByTagName("tablanB").item(0).getTextContent());
+					kd.setLevettB(element.getElementsByTagName("levettB").item(0).getTextContent());
+					kd.setTablanW(element.getElementsByTagName("tablanW").item(0).getTextContent());
+					kd.setLevettW(element.getElementsByTagName("levettW").item(0).getTextContent());
+	
+					for (int sor = 0; sor < 6; sor++) {
+						String sorStr = element.getElementsByTagName("tabla").item(sor).getTextContent();
+						char[] cha = sorStr.toCharArray();
+	
+						for (int y = 0; y < 6; y++) {
+							kd.setElem(sor, y, Integer.parseInt(cha[y] + ""));
+						}
 					}
 				}
 			}
+			
+			logger.info("A mentett állás betöltődött.");
 		}
-		
-		logger.info("A mentett állás betöltődött.");
 		
 		return kd;
 	}
@@ -133,11 +154,30 @@ public class SavedGame {
 
 		TransformerFactory tf = TransformerFactory.newInstance();
 		Transformer t = tf.newTransformer();
-
-		ClassLoader classLoader = getClass().getClassLoader();
 		
 		DOMSource source = new DOMSource(doc);
-		StreamResult result = new StreamResult(new File(classLoader.getResource("kimentes.xml").getFile()));
+		
+		File xml = null;
+		
+		if (osName.contains("windows")) {
+			xml = new File(windowsFilePath);
+		}
+		else if (osName.contains("linux") || osName.contains("unix")) {
+			xml = new File(linuxFilePath);
+		}
+		else {
+			logger.warn("Nem ismert operációs rendszer. Nem lehet menteni a fájlt.");	
+		}
+		
+		if (xml != null && !xml.exists()) {
+			try {
+				xml.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		StreamResult result = new StreamResult(xml);
 		t.transform(source, result);
 		
 		logger.info("Az állás mentésre került.");
