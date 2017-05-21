@@ -8,8 +8,7 @@ import org.slf4j.LoggerFactory;
 import hu.unideb.inf.prt.kitolas.model.KitolasData;
 
 /**
- * A kitolás nevű kétszemélyes táblajáték megvalósítása. A játék során történő
- * adatmozgatásokat, adatmanipulációkat valósítja meg.
+ * Az osztály a játék során történő adatmozgatásokat, adatmanipulációkat valósítja meg.
  *
  * @author Erdőhegyi László
  * @since 2016-05-13
@@ -75,6 +74,8 @@ public class KitolasDataController {
     }
 
     /**
+     * Megnöveli a levett kavicsok számát.
+     * 
      * Ha az egyik játékos kitol egy kavicsot a pályáról akkor megnöveli eggyel
      * a levettB vagy levettW mezőt attól függően, hogy a levett kavics fekete
      * vagy fehér volt.
@@ -91,6 +92,8 @@ public class KitolasDataController {
     }
 
     /**
+     * Csökkenti a táblán lévő kavicsok számát.
+     * 
      * Ha az egyik játékos kitol egy kavicsot a pályáról akkor lecsökkenti
      * eggyel a tablanB vagy tablanW mezőt attól függően, hogy a levett kavics
      * fekete vagy fehér volt.
@@ -109,8 +112,7 @@ public class KitolasDataController {
     /**
      * A paraméterként kapott oszlopot eltolja eggyel felfele.
      *
-     * @param oIndex
-     *            Az eltolni kívánt oszlop indexe.
+     * @param oIndex az eltolni kívánt oszlop indexe
      */
     public void shiftUpData(int oIndex) {
         for (int i = 0; i < 6; i++) {
@@ -127,8 +129,7 @@ public class KitolasDataController {
     /**
      * A paraméterként kapott oszlopot eltolja eggyel lefele.
      *
-     * @param oIndex
-     *            Az eltolni kívánt oszlop indexe.
+     * @param oIndex az eltolni kívánt oszlop indexe
      */
     public void shiftDownData(int oIndex) {
         for (int i = 5; i >= 0; i--) {
@@ -145,8 +146,7 @@ public class KitolasDataController {
     /**
      * A paraméterként kapott sort eltolja eggyel balra.
      *
-     * @param sIndex
-     *            Az eltolni kívánt sor indexe.
+     * @param sIndex az eltolni kívánt sor indexe
      */
     public void shiftLeftData(int sIndex) {
         for (int j = 0; j < 6; j++) {
@@ -161,10 +161,9 @@ public class KitolasDataController {
     }
 
     /**
-     * A paraméterként kapott sort eltolja eggyel balra.
+     * A paraméterként kapott sort eltolja eggyel jobbra.
      *
-     * @param sIndex
-     *            Az eltolni kívánt sor indexe.
+     * @param sIndex az eltolni kívánt sor indexe
      */
     public void shiftRightData(int sIndex) {
         for (int j = 5; j >= 0; j--) {
@@ -193,34 +192,40 @@ public class KitolasDataController {
     }
 
     /**
-     * @return Visszaadja a kt nevű KitolasData-t.
+     * Visszaadja az adott játék állapotát.
+     * 
+     * @return az adott {@link KitolasData}
      */
     public KitolasData getKt() {
         return kt;
     }
 
     /**
-     * @param kt
-     *            Beállítja a paraméterként kapott KitolasData-ra az aktuális
-     *            állást (KitolásData-t).
+     * Beállítja az adott játék állapotát.
+     * 
+     * @param kt az állapot amire az aktuális játék állapotát szeretnénk állítani
      */
     public void setKt(KitolasData kt) {
         this.kt = kt;
     }
 
     /**
-     * @return Visszaadja az aktuálisan utoljára levett kavics színét (0 == nem
-     *         vett le, 1 == fehér, 2 == fekete).
+     * Visszaadja az aktuálisan utoljára levett kavics színét
+     * 
+     * 0 ha nem vett le. 1 ha fehéret, 2 ha feketét vett le.
+     * 
+     * @return az aktuálisan levett kavics
      */
     public int getAktLevett() {
         return aktLevett;
     }
 
     /**
-     * Beállítja az aktuálisan utoljára levett kavics színát.
+     * Beállítja az aktuálisan utoljára levett kavics színét.
      * 
-     * @param aktLevett
-     *            Milyen színű legyen a kavics.
+     * 0 ha nem vett le. 1 ha fehéret, 2 ha feketét vett le.
+     * 
+     * @param aktLevett milyen kavicsot vett le utoljára
      */
     public void setAktLevett(int aktLevett) {
         this.aktLevett = aktLevett;

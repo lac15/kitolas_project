@@ -5,7 +5,7 @@
     <artifactId>Kitolas</artifactId>
     <version>1.0</version>
 
-    <description>Kitolas nevű kétszemélyes táblajáték.</description>
+    <description>Kitolás nevű kétszemélyes táblajáték.</description>
 
     <developers>
         <developer>
@@ -26,23 +26,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
-
-    <profiles>
-        <profile>
-            <id>simple</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <dependencies>
-                <dependency>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-simple</artifactId>
-                    <version>1.7.25</version>
-                    <scope>runtime</scope>
-                </dependency>
-            </dependencies>
-        </profile>
-    </profiles>
 
     <build>
         <plugins>

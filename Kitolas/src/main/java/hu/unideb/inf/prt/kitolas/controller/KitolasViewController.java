@@ -1,7 +1,6 @@
 package hu.unideb.inf.prt.kitolas.controller;
 
 import hu.unideb.inf.prt.kitolas.model.KitolasData;
-import hu.unideb.inf.prt.kitolas.model.SavedGame;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,9 +24,8 @@ import javafx.scene.control.Label;
 import javafx.scene.shape.Circle;
 
 /**
- * A kitolás nevű kétszemélyes táblajáték megvalósítása. A játék felületén
- * megjelenő gombok, mezők és alakzatok, illetve a velük történő események
- * kezelését valósítja meg.
+ * A játék felületén megjelenő gombok, mezők és alakzatok, illetve
+ * a velük történő események kezelését valósítja meg.
  *
  * @author Erdőhegyi László
  * @since 2016-05-13

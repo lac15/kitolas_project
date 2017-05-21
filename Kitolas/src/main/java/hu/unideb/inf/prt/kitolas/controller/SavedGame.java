@@ -1,4 +1,4 @@
-package hu.unideb.inf.prt.kitolas.model;
+package hu.unideb.inf.prt.kitolas.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,13 +19,13 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-/**
-* A kitolás nevű kétszemélyes táblajáték megvalósítása.
-* A mentett állás beolvasására és új mentés létrehozására
-* szolgáló osztály.
+import hu.unideb.inf.prt.kitolas.model.KitolasData;
+
+/** 
+* A mentett állás beolvasására és új mentés létrehozására szolgáló osztály.
 *
-* @author  Erdőhegyi László
-* @since   2016-05-13
+* @author Erdőhegyi László
+* @since 2016-05-13
 */
 public class SavedGame {
 	private static Logger logger = LoggerFactory.getLogger(SavedGame.class);
@@ -41,8 +41,13 @@ public class SavedGame {
 			File.separator + "kimentes.xml";
 	
 	/**
-	 * Beolvassa a mentett játékot.
-	 * @return Egy KitolasData mely tartalmazza a beolvasott adatokat.
+	 * Beolvassa a mentett játékot egy XML állományból.
+	 * 
+	 * Az XML állományt operációs rendszertől függően máshol keresi.
+	 * Windows: {@code C:\Users\}felhasználónév{@code \Documents\kimentes.xml}
+	 * Linux: {@code /home/}felhasználónév{@code /kimentes.xml}
+	 * 
+	 * @return egy állás ({@link KitolasData}), mely tartalmazza a beolvasott állást
 	 * @throws ParserConfigurationException parser configuration exception
 	 * @throws SAXException sax exception
 	 * @throws IOException io exception
@@ -101,8 +106,13 @@ public class SavedGame {
 	}
 
 	/**
-	 * Egy adott állás (KitolasData) mentését valósítja meg.
-	 * @param kd Az a KitolasData melyet menteni fog.
+	 * Egy adott állás ({@link KitolasData}) mentését valósítja meg egy XML állományba.
+	 * 
+	 * Az XML állományt operációs rendszertől függően máshova helyezi.
+	 * Windows: {@code C:\Users\}felhasználónév{@code \Documents\kimentes.xml}
+	 * Linux: {@code /home/}felhasználónév{@code /kimentes.xml}
+	 * 
+	 * @param kd az az állás ({@link KitolasData}) amelyet menteni akarunk
 	 * @throws TransformerException transformer exception
 	 * @throws ParserConfigurationException parser configuration exception
 	 */

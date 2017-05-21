@@ -9,8 +9,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 /**
-* A kitolás nevű kétszemélyes táblajáték megvalósítása.
-* A projekt programozási technológiák órára készül.
+* A kitolás nevű kétszemélyes táblajáték felületének megjelenítéséért felelős osztály.
 *
 * @author  Erdőhegyi László
 * @since   2016-05-13
@@ -22,8 +21,10 @@ public class Main extends Application {
 	
 	/**
 	 * Betölti a grafikus felületet.
-	 * Felülírja az Application osztály start metódusát.
-	 * @param ps Az a stage melyre az FXML elemek kerülnek.
+	 * 
+	 * Felülírja az {@link javafx.application.Application#start(Stage)} metódust.
+	 * 
+	 * @param ps az a stage melyre az FXML elemek kerülnek
 	 */
 	@Override
 	public void start(Stage ps) {
@@ -35,14 +36,15 @@ public class Main extends Application {
 	
 	/**
 	 * A program indításáért felel.
-	 * @param args Parancssori argumentumok tömbje.
+	 * 
+	 * @param args a parancssori argumentumok tömbje
 	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
 	
 	/**
-	 * Betölti a view-t és hozzáadja a primaryStage-hez.
+	 * Betölti a View-t és hozzáadja a primaryStage-hez.
 	 */
 	private void createKitolasView() {
 		FXMLLoader loader = new FXMLLoader();

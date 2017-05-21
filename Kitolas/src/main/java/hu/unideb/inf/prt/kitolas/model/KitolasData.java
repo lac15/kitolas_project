@@ -1,8 +1,7 @@
 package hu.unideb.inf.prt.kitolas.model;
 
 /**
- * A kitolás nevű kétszemélyes táblajáték megvalósítása. A játékmenethez
- * szükséges adatok modellje.
+ * A játékmenethez szükséges adatok modellje.
  * 
  * @author Erdőhegyi László
  * @since 2016-05-13
@@ -28,19 +27,12 @@ public class KitolasData {
     /**
      * Konstruktor a paraméterekkel történő példányosításokhoz.
      *
-     * @param tablanB
-     *            Az adott játékmenetben még a táblán lévő fekete kavicsok
-     *            száma.
-     * @param levettB
-     *            Az adott játékmenetben már levett fekete kavicsok száma.
-     * @param tablanW
-     *            Az adott játékmenetben még a táblán lévő fehér kavicsok száma.
-     * @param levettW
-     *            Az adott játékmenetben már levett feher kavicsok száma.
-     * @param korSzam
-     *            Az adott játékmenetben eltelt körök száma.
-     * @param lepesSzam
-     *            Az adott játékmenetben megtett lépések száma.
+     * @param tablanB az adott játékmenetben még a táblán lévő fekete kavicsok száma
+     * @param levettB az adott játékmenetben már levett fekete kavicsok száma
+     * @param tablanW az adott játékmenetben még a táblán lévő fehér kavicsok száma
+     * @param levettW az adott játékmenetben már levett feher kavicsok száma
+     * @param korSzam az adott játékmenetben eltelt körök száma
+     * @param lepesSzam az adott játékmenetben megtett lépések száma
      */
     public KitolasData(String tablanB, String levettB, String tablanW, String levettW, String korSzam,
             String lepesSzam) {
@@ -53,106 +45,117 @@ public class KitolasData {
     }
 
     /**
-     * @return Visszaadja a táblán lévő fekete kavicsok számát.
+     * Visszaadja a táblán lévő fekete kavicsok számát.
+     * 
+     * @return a táblán lévő fekete kavicsok száma
      */
     public String getTablanB() {
         return tablanB;
     }
 
     /**
-     * @param tablanB
-     *            Beállítja a paraméterként kapott értékre a táblán lévő fekete
-     *            kavicsok számát.
+     * Beállítja a paraméterként kapott értékre a táblán lévő fekete kavicsok számát.
+     * 
+     * @param tablanB mennyi legyen a táblán lévő fekete kavicsok száma
      */
     public void setTablanB(String tablanB) {
         this.tablanB = tablanB;
     }
 
     /**
-     * @return Visszaadja a levett fekete kavicsok számát.
+     * Visszaadja a levett fekete kavicsok számát.
+     * 
+     * @return a levett fekete kavicsok száma
      */
     public String getLevettB() {
         return levettB;
     }
 
     /**
-     * @param levettB
-     *            Beállítja a paraméterként kapott értékre a levett fekete
-     *            kavicsok számát.
+     * Beállítja a paraméterként kapott értékre a levett fekete kavicsok számát.
+     * 
+     * @param levettB mennyi legyen a levett fekete kavicsok száma
      */
     public void setLevettB(String levettB) {
         this.levettB = levettB;
     }
 
     /**
-     * @return Visszaadja a táblán lévő feher kavicsok számát.
+     * Visszaadja a táblán lévő fehér kavicsok számát.
+     * 
+     * @return a táblán lévő fehér kavicsok száma
      */
     public String getTablanW() {
         return tablanW;
     }
 
     /**
-     * @param tablanW
-     *            Beállítja a paraméterként kapott értékre a táblán lévő fehér
-     *            kavicsok számát a táblán.
+     * Beállítja a paraméterként kapott értékre a táblán lévő fehér kavicsok számát.
+     * 
+     * @param tablanW mennyi legyen a táblán lévő fehér kavicsok száma
      */
     public void setTablanW(String tablanW) {
         this.tablanW = tablanW;
     }
 
     /**
-     * @return Visszaadja a levett fehér kavicsok számát.
+     * Visszaadja a levett fehér kavicsok számát.
+     * 
+     * @return a levett fehér kavicsok száma
      */
     public String getLevettW() {
         return levettW;
     }
 
     /**
-     * @param levettW
-     *            Beállítja a paraméterként kapott értékre a levett fehér
-     *            kavicsok számát.
+     * Beállítja a paraméterként kapott értékre a levett fehér kavicsok számát.
+     * 
+     * @param levettW mennyi legyen a levett fehér kavicsok száma
      */
     public void setLevettW(String levettW) {
         this.levettW = levettW;
     }
 
     /**
-     * @return Visszaadja az eltelt körök számát.
+     * Visszaadja az eltelt körök számát.
+     * 
+     * @return az eltelt körök száma
      */
     public String getKorSzam() {
         return korSzam;
     }
 
     /**
-     * @param korSzam
-     *            Baállítja a paraméterként kapott értékre az eltelt körök
-     *            számát.
+     * Beállítja a paraméterként kapott értékre az eltelt körök számát.
+     * 
+     * @param korSzam mennyi legyen az eltelt körök száma
      */
     public void setKorSzam(String korSzam) {
         this.korSzam = korSzam;
     }
 
     /**
-     * @return Visszaadja a megtett lépések számát.
+     * Visszaadja a megtett lépések számát.
+     * 
+     * @return a megtett lépések száma
      */
     public String getLepesSzam() {
         return lepesSzam;
     }
 
     /**
-     * @param lepesSzam
-     *            Baállítja a paraméterként kapott értékre a megtett lépések
-     *            számát számát.
+     * Beállítja a paraméterként kapott értékre a megtett lépések számát.
+     * 
+     * @param lepesSzam mennyi legyen a megtett lépések száma
      */
     public void setLepesSzam(String lepesSzam) {
         this.lepesSzam = lepesSzam;
     }
 
     /**
-     * A táblán lévő elemek mátrixának konstruktora.
+     * Konstruktor a táblán lévő elemek mátrixával való példányosításhoz.
      *
-     * @param tabla
-     *            Egy 6x6 dimenziós mátrix.
+     * @param tabla a táblán lévő elemek 6x6-os mátrixa
      */
     public KitolasData(int[][] tabla) {
         super();
@@ -160,7 +163,9 @@ public class KitolasData {
     }
 
     /**
-     * @return Visszaad egy 6x6-os mátrixok melyben a táblán lévő elemek vannak.
+     * Visszaad egy 6x6-os mátrixok, melyben a táblán lévő elemek vannak.
+     * 
+     * @return a táblán lévő elemek egy 6x6-os mátrixban
      */
     public int[][] getTabla() {
         return tabla;
@@ -169,35 +174,30 @@ public class KitolasData {
     /**
      * Beállítja a paraméterként kapott mátrixra a táblán lévő elemek mátrixát.
      *
-     * @param tabla
-     *            Egy 6x6 dimenziós mátrix.
+     * @param tabla ez legyen a táblán lévő elemek 6x6-os mátrixa
      */
     public void setTabla(int[][] tabla) {
         this.tabla = tabla;
     }
 
     /**
-     * @param x
-     *            A táblán lévő elemek mátrixának sor indexe.
-     * @param y
-     *            A táblán lévő elemek mátrixának oszlop indexe.
-     * @return A táblán lévő elemek mátrixának (x,y) helyén található elemet
-     *         adja vissza.
+     * A táblán lévő elemek mátrixának {@code [x, y]} helyén található elemet adja vissza.
+     * 
+     * @param x a táblán lévő elemek mátrixának sor indexe
+     * @param y a táblán lévő elemek mátrixának oszlop indexe
+     * @return a mátrix {@code [x, y]} helyén találhato elem
      */
     public int getElem(int x, int y) {
         return this.tabla[x][y];
     }
 
     /**
-     * Beállitja a táblán lévő elemek mátrixának (x,y) helyén lévő elemét a
-     * paraméterként kapott value értékre.
+     * Beállitja a táblán lévő elemek mátrixának {@code [x, y]} helyén lévő elemét a
+     * paraméterként kapott {@code value} értékre.
      *
-     * @param x
-     *            A táblán lévő elemek mátrixának sor indexe.
-     * @param y
-     *            A táblán lévő elemek mátrixának oszlop indexe.
-     * @param value
-     *            A táblán lévő elemek mátrixának (x,y) helyére kerülő új elem.
+     * @param x a táblán lévő elemek mátrixának sor indexe
+     * @param y a táblán lévő elemek mátrixának oszlop indexe
+     * @param value a mátrix {@code [x, y]} helyére kerülő új elem
      */
     public void setElem(int x, int y, int value) {
         this.tabla[x][y] = value;
