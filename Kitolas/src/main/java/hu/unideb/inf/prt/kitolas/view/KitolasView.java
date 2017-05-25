@@ -1,5 +1,7 @@
-package hu.unideb.inf.prt.kitolas.controller;
+package hu.unideb.inf.prt.kitolas.view;
 
+import hu.unideb.inf.prt.kitolas.controller.KitolasDataController;
+import hu.unideb.inf.prt.kitolas.controller.SavedGame;
 import hu.unideb.inf.prt.kitolas.model.KitolasData;
 
 import java.io.IOException;
@@ -30,8 +32,8 @@ import javafx.scene.shape.Circle;
  * @author Erdőhegyi László
  * @since 2016-05-13
  */
-public class KitolasViewController implements Initializable {
-    private static Logger logger = LoggerFactory.getLogger(KitolasViewController.class);
+public class KitolasView implements Initializable {
+    private static Logger logger = LoggerFactory.getLogger(KitolasView.class);
 
     private KitolasDataController kdc = new KitolasDataController();
     
